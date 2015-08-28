@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Cliente.MainWindow"
+        Title="MainWindow" Height="345" Width="525" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary 
+                  Source="Resources/Styles/Botoes.xaml"/>
+                <ResourceDictionary 
+                  Source="Resources/Styles/TextBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Rectangle Fill="#FF282829" Height="234" Stroke="#FF242870" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Bottom" RadiusY="25" RadiusX="25"/>
+        <Rectangle Fill="#FFEAEAEA" Height="279" Stroke="#FF3F4391" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Top" RadiusX="25" RadiusY="25"/>
+        <Grid Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button x:Name="btnLogar" Content="LOGAR" Width="130" Template="{DynamicResource Button01}" Foreground="White" FontSize="18" Click="btnLogar_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36"/>
+            <Button x:Name="btnFechar" Content="FECHAR" Margin="200,0,0,0" VerticalAlignment="Top" Width="130" Template="{DynamicResource Button01}" HorizontalAlignment="Right" FontSize="18" Foreground="White" Click="btnFechar_Click" Height="36"/>
+        </Grid>
+
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="55" Margin="18,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle1}" Width="485" Foreground="White" FontSize="24" CaretBrush="White"/>
+        <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="18,207,0,0" VerticalAlignment="Top" Width="485" Height="55" Style="{DynamicResource PasswordBoxStyle01}" FontSize="24" CaretBrush="White" Foreground="White"/>
+        <Image Height="129" Margin="0" VerticalAlignment="Top" Source="Imagens/logo.png"/>
+
+
+    </Grid>
+</Window>
