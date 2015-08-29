@@ -11,7 +11,8 @@ namespace Cliente {
         #region Definição de variáveis
 
         // Defino variaveis
-        private static string serverName = "10.14.1.100"; // Host
+        private static string serverName = "192.168.25.164"; // Host
+
         private static string port = "5432"; // porta default
         private static string userName = "postgres"; // nome do administrador
         private static string password = "postgres"; // senha do administrador
@@ -133,7 +134,6 @@ namespace Cliente {
 
         }
 
-
         /// <summary>
         /// Possibilita recuperar apenas um item da base (uma linha de query).
         /// </summary>
@@ -145,7 +145,7 @@ namespace Cliente {
 
             cnn.Open();
 
-            var mycommand = new NpgsqlCommand(sql,cnn);
+            var mycommand = new NpgsqlCommand(sql, cnn);
 
             var value = mycommand.ExecuteScalar();
 
@@ -325,15 +325,6 @@ namespace Cliente {
             }
 
         }
-
-
-
-
-
-
-
-
-
 
         //Pega todos os registros
         public DataTable GetTodosRegistros() {
