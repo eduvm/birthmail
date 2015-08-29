@@ -1,8 +1,9 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpf="clr-namespace:TheArtOfDev.HtmlRenderer.WPF;assembly=HtmlRenderer.WPF"
         x:Name="window" x:Class="Cliente.WinPrincipal"
-        Title="WinPrincipal" Height="600" Width="800" Background="#FF393D44" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" WindowStyle="None">
+        Title="WinPrincipal" Height="637" Width="800" Background="#FF393D44" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -11,6 +12,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
+            <Rectangle x:Name="titleBar" MouseDown="titleBar_MouseDown" Panel.ZIndex="10" Fill="#00000000"/>
             <TextBlock Text="MASTER" HorizontalAlignment="Left" FontSize="34" FontFamily="Segoe WP Black" Foreground="White" Margin="10,0,0,0" />
             <TextBlock Text="AUTO PARTS" HorizontalAlignment="Left" FontFamily="Segoe WP Black" Foreground="White" Margin="163,0,0,9" RenderTransformOrigin="1.545,0.6" VerticalAlignment="Bottom" FontSize="16" />
         </Grid>
@@ -28,14 +30,62 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnCadAniversariantes" Content="CADASTRO DE ANIVERSARIANTES" Grid.Row="0" Margin="5"/>
-                <Button x:Name="btnCadMensagens" Content="CADASTRO DE MENSAGENS" Grid.Row="1" Margin="5"/>
-                <Button x:Name="btnCadTipos" Content="CADASTRO DE TIPOS" Grid.Row="2" Margin="5"/>
-                <Button x:Name="btnCadUsuarios" Content="CADASTRAR USUÁRIOS" Grid.Row="3" Margin="5"/>
+
+                <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5">
+                    <StackPanel Margin="0,5">
+                        <Image Source="Imagens/presente.png" Width="64" Height="64" />
+                        <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE ANIVERSARIANTES</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5">
+                    <StackPanel Margin="0,5">
+                        <Image Source="Imagens/mensagem.png" Width="64" Height="64" />
+                        <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE MENSAGENS</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnCadTipos"  Grid.Row="2" Margin="5">
+                    <StackPanel Margin="0,5">
+                        <Image Source="Imagens/tipo.png" Width="64" Height="64" />
+                        <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE TIPOS</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnCadUsuarios" Grid.Row="3" Margin="5">
+                    <StackPanel Margin="0,5">
+                        <Image Source="Imagens/usuario.png" Width="64" Height="64" />
+                        <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE USUÁRIOS</TextBlock>
+                    </StackPanel>
+                </Button>
             </Grid>
             <Grid Grid.Column="1" Background="White">
-                <GroupBox Header=" ENVIOS RECENTES" Margin="5" BorderBrush="#FF515D64" BorderThickness="1"/>
-                <DataGrid Margin="15,25,15,20" BorderThickness="0"/>
+                <GroupBox Header=" ENVIOS RECENTES" Margin="5" BorderBrush="#FF515D64" BorderThickness="1">
+
+                    <Grid Margin="5">
+                        <TextBlock Text="Nome:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346"/>
+                        <TextBlock Text="Email:" Margin="0,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="346"/>
+                        <TextBlock Text="Data de Envio:" Margin="396,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,-2,0" Width="87"/>
+                        <TextBlock Text="Tipo:" Margin="396,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,24,-2,0" Width="134"/>
+                        <TextBlock Text="Mensagem:" Margin="0,55,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <!--<FlowDocumentScrollViewer x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top"/>-->
+                        <!--<WebBrowser x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" Panel.ZIndex="10"/>-->
+                        <wpf:HtmlPanel x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" Text=""/>
+                        <DataGrid BorderThickness="0" Margin="0,288,0,0"/>
+
+                    </Grid>
+
+
+
+
+                    
+
+                </GroupBox>
+
 
 
             </Grid>
