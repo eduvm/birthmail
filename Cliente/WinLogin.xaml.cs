@@ -1,34 +1,42 @@
 ﻿using System;
-using System.Data;
 using System.Windows;
 
-namespace Cliente
-{
+namespace Cliente {
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window {
 
-        public MainWindow()
-        {
+        public MainWindow() {
+
+            // Inicializa componentes do formulário/window
             InitializeComponent();
+
+            // Seta foco no campo de usuário
+            tbUser.Focus();
+
         }
 
-        private void btnFechar_Click(object sender, RoutedEventArgs e)
-        {
+        /// <summary>
+        /// Evento ao clicar no botão fechar
+        /// </summary>
+        /// <param name="sender">Objeto de origem do click</param>
+        /// <param name="e">Parametros passados pelo objeto</param>
+        private void btnFechar_Click(object sender, RoutedEventArgs e) {
 
+            // Fecha o formulário/window
             this.Close();
 
         }
 
-        private void btnLogar_Click(object sender, RoutedEventArgs e)
-        {
+        /// <summary>
+        /// Verifica e executa o login do usuário
+        /// </summary>
+        private void Logar() {
 
-
-            try
-            {
+            // Tenta
+            try {
 
                 // Gera objeto de encriptação
                 EncryptHelper teste = new EncryptHelper();
@@ -48,17 +56,16 @@ namespace Cliente
                 // Executa a query
                 var result = usuario.ExecuteScalar(query);
 
-                // Verifica se existe o usuario no banco
-                if (String.IsNullOrEmpty(result))
-                {
+                // Se não existe o usuario no banco
+                if (String.IsNullOrEmpty(result)) {
 
                     // Informa que não encontrou o usuário
                     MessageBox.Show("Usuário ou senha incoretos");
 
                 }
 
-                else
-                {
+                    // Se existir
+                else {
 
                     // Carrega o formulário principal
                     WinPrincipal winPrincipal = new WinPrincipal();
@@ -73,18 +80,68 @@ namespace Cliente
 
             }
 
-            catch (Exception fail)
-            {
+            // Trata excessão
+            catch (Exception fail) {
 
-                String error = "The following error has occurred:\n\n";
+                // Seta mensagem de erro
+                String error = "O seguinte erro ocorreu:\n\n";
 
+                // Anexa mensagem de erro na mensagem
                 error += fail.Message.ToString() + "\n\n";
 
+                // Apresenta mensagem na tela
                 MessageBox.Show(error);
 
+                // Fecha o formulário
                 this.Close();
 
             }
+
+        }
+
+        /// <summary>
+        /// Método ao pressionar tecla no campo de usuário
+        /// </summary>
+        /// <param name="sender">Objeto de origem</param>
+        /// <param name="e">Parametros passados pelo objeto</param>
+        private void tbUser_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+
+            // Verifica se a tecla for "Enter"
+            if (e.Key == System.Windows.Input.Key.Enter) {
+
+                // Seta foco no campo de senha
+                tbPass.Focus();
+
+            }
+
+        }
+
+        /// <summary>
+        /// Método ao pressionar tecla no campo de senha
+        /// </summary>
+        /// <param name="sender">Objeto de origem</param>
+        /// <param name="e">Parametros passados pelo objeto</param>
+        private void tbPass_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+
+            // Verifica se a tecla é o Enter
+            if (e.Key == System.Windows.Input.Key.Enter) {
+
+                // Chama rotina que trata do login
+                Logar();
+
+            }
+
+        }
+
+        /// <summary>
+        /// Método ao clicar no botão Logar
+        /// </summary>
+        /// <param name="sender">Objeto de origem</param>
+        /// <param name="e">Parametros passados pelo objeto</param>
+        private void btnLogar_Click(object sender, RoutedEventArgs e) {
+
+            // Chama rotina que trata do login
+            Logar();
 
         }
 

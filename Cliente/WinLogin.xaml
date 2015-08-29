@@ -18,12 +18,12 @@
         <Rectangle Fill="#FF282829" Height="234" Stroke="#FF242870" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Bottom" RadiusY="25" RadiusX="25"/>
         <Rectangle Fill="#FFEAEAEA" Height="279" Stroke="#FF3F4391" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Top" RadiusX="25" RadiusY="25"/>
         <Grid Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button x:Name="btnLogar" Content="LOGAR" Width="130" Template="{DynamicResource Button01}" Foreground="White" FontSize="18" Click="btnLogar_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36"/>
+            <Button x:Name="btnLogar" Content="LOGAR" Width="130" Template="{DynamicResource Button01}" Foreground="White" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Click="btnLogar_Click"/>
             <Button x:Name="btnFechar" Content="FECHAR" Margin="200,0,0,0" VerticalAlignment="Top" Width="130" Template="{DynamicResource Button01}" HorizontalAlignment="Right" FontSize="18" Foreground="White" Click="btnFechar_Click" Height="36"/>
         </Grid>
 
-        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="55" Margin="18,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle1}" Width="485" Foreground="White" FontSize="24" CaretBrush="White"/>
-        <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="18,207,0,0" VerticalAlignment="Top" Width="485" Height="55" Style="{DynamicResource PasswordBoxStyle01}" FontSize="24" CaretBrush="White" Foreground="White"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="55" Margin="18,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyle1}" Width="485" Foreground="White" FontSize="24" CaretBrush="White" KeyDown="tbUser_KeyDown"/>
+        <PasswordBox x:Name="tbPass" HorizontalAlignment="Left" Margin="18,207,0,0" VerticalAlignment="Top" Width="485" Height="55" Style="{DynamicResource PasswordBoxStyle01}" FontSize="24" CaretBrush="White" Foreground="White" KeyDown="tbPass_KeyDown"/>
         <Image Height="129" Margin="0" VerticalAlignment="Top" Source="Imagens/logo.png"/>
 
 
