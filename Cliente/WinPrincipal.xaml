@@ -125,13 +125,13 @@
 
                         <Grid Margin="5">
                             <TextBlock Text="Nome:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346" IsReadOnly="True"/>
                             <TextBlock Text="Email:" Margin="0,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="346"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="346" IsReadOnly="True"/>
                             <TextBlock Text="Data de Envio:" Margin="396,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,-2,0" Width="87"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,-2,0" Width="87" IsReadOnly="True"/>
                             <TextBlock Text="Tipo:" Margin="396,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,24,-2,0" Width="134"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,24,-2,0" Width="134" IsReadOnly="True"/>
                             <TextBlock Text="Mensagem:" Margin="0,55,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <!--<FlowDocumentScrollViewer x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top"/>-->
                             <!--<WebBrowser x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" Panel.ZIndex="10"/>-->
@@ -170,6 +170,6 @@
 
         </Grid>
         <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click"/>
-        <Button x:Name="btnFechar_Copy1" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33"/>
+        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33"/>
     </Grid>
 </Window>
