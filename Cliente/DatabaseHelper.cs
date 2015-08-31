@@ -11,7 +11,7 @@ namespace Cliente {
         #region Definição de variáveis
 
         // Defino variaveis
-        private static string serverName = "192.168.25.164"; // Host
+        private static string serverName = "10.14.1.100"; // Host
 
         private static string port = "5432"; // porta default
         private static string userName = "postgres"; // nome do administrador
@@ -19,7 +19,7 @@ namespace Cliente {
         private static string databaseName = "aniversariantes"; // nome do banco de dados
 
         private NpgsqlConnection pgsqlConnection = null;
-        private string dbConnection = null;
+        private string dbParameters = null;
 
         #endregion Definição de variáveis
 
@@ -30,7 +30,7 @@ namespace Cliente {
         /// </summary>
         public DatabaseHelper() {
 
-            dbConnection = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, databaseName);
+            dbParameters = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, databaseName);
 
         }
 
@@ -40,7 +40,7 @@ namespace Cliente {
         /// <param name="database">Nome da base de dados a ser utilizada</param>
         public DatabaseHelper(string database) {
 
-            dbConnection = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, database);
+            dbParameters = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, database);
 
         }
 
@@ -67,7 +67,7 @@ namespace Cliente {
             str = str.Trim().Substring(0, str.Length - 1);
 
             // Seto string de conexao com os parametros
-            dbConnection = str;
+            dbParameters = str;
 
         }
 
@@ -85,7 +85,7 @@ namespace Cliente {
 
             try {
 
-                var cnn = new NpgsqlConnection(dbConnection);
+                var cnn = new NpgsqlConnection(dbParameters);
 
                 cnn.Open();
 
@@ -118,7 +118,7 @@ namespace Cliente {
         /// <returns>Um inteiro com a quantidade de linhas alteradas.</returns>
         public int ExecuteNonQuery(string sql) {
 
-            var cnn = new NpgsqlConnection(dbConnection);
+            var cnn = new NpgsqlConnection(dbParameters);
 
             cnn.Open();
 
@@ -141,7 +141,7 @@ namespace Cliente {
         /// <returns>Uma string</returns>
         public string ExecuteScalar(string sql) {
 
-            var cnn = new NpgsqlConnection(dbConnection);
+            var cnn = new NpgsqlConnection(dbParameters);
 
             cnn.Open();
 
@@ -334,7 +334,7 @@ namespace Cliente {
 
             // Tenta fazer a consulta
             try {
-                using (pgsqlConnection = new NpgsqlConnection(dbConnection)) {
+                using (pgsqlConnection = new NpgsqlConnection(dbParameters)) {
                     // abre a conexão com o PgSQL e define a instrução SQL
                     pgsqlConnection.Open();
                     string cmdSeleciona = "Select * from funcionarios order by id";
