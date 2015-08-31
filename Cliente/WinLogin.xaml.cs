@@ -51,7 +51,7 @@ namespace Cliente {
                 DatabaseHelper usuario = new DatabaseHelper("aniversariantes");
 
                 // Define SQL Query
-                String query = String.Format("SELECT usuario FROM dados.usuarios WHERE usuario = '{0}' and senha = '{1}' and ativo = true;", user, senha);
+                String query = String.Format("SELECT c_usuario FROM dados.usuarios WHERE c_usuario = '{0}' AND c_senha = '{1}' AND b_ativo = true AND deletado = false;", user, senha);
 
                 // Executa a query
                 var result = usuario.ExecuteScalar(query);
