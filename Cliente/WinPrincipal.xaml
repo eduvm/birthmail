@@ -125,19 +125,25 @@
 
                         <Grid Margin="5">
                             <TextBlock Text="Nome:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346" IsReadOnly="True"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Email:" Margin="0,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="346" IsReadOnly="True"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="346" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_email, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Data de Envio:" Margin="396,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,-2,0" Width="87" IsReadOnly="True"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,-2,0" Width="87" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, StringFormat=\{0:dd/MM/yyyy\}, Path=SelectedItem.d_data_envio, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Tipo:" Margin="396,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,24,-2,0" Width="134" IsReadOnly="True"/>
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,24,-2,0" Width="134" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_tipo, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Mensagem:" Margin="0,55,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <!--<FlowDocumentScrollViewer x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top"/>-->
-                            <!--<WebBrowser x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" Panel.ZIndex="10"/>-->
-                            <!--<wpf:HtmlPanel x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" Background="White" Text="" BorderBrush="Black" BorderThickness="1"/>-->
-                            <HtmlEditor:HtmlEditor x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" IsEnabled="False" />
-                            <DataGrid BorderThickness="0" Margin="0,288,0,0"/>
+                            <HtmlEditor:HtmlEditor x:Name="browserMsg" Height="210" Margin="0,73,0,0" VerticalAlignment="Top" IsEnabled="False" BindingContent="{Binding ElementName=dgridHistorico, Path=SelectedItem.t_mensagem, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGrid x:Name="dgridHistorico" BorderThickness="0" Margin="0,288,0,0" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="ID"/>
+                                    <DataGridTextColumn Binding="{Binding c_nome}" ClipboardContentBinding="{x:Null}" Header="NOME"/>
+                                    <DataGridTextColumn Binding="{Binding c_email}" ClipboardContentBinding="{x:Null}" Header="EMAIL"/>
+                                    <DataGridTextColumn Binding="{Binding n_tipo}" ClipboardContentBinding="{x:Null}" Header="TIPO"/>
+                                    <DataGridTextColumn Binding="{Binding t_mensagem}" ClipboardContentBinding="{x:Null}" Header="MENSAGEM"/>
+                                    <DataGridTextColumn Binding="{Binding d_data_envio, StringFormat=\{0:dd/MM/yyyy\}}" ClipboardContentBinding="{x:Null}" Header="DATA DE ENVIO"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
 
                         </Grid>
 

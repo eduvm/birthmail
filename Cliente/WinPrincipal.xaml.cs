@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -31,6 +32,52 @@ namespace Cliente {
 
             // Define novo evento para tratar da maximizaçao da janela
             this.SourceInitialized += new EventHandler(win_SourceInitialized);
+
+            // Carrega mensagens do histórico
+            CarregaHistoricoMensagens();
+
+        }
+
+        private void CarregaHistoricoMensagens()
+        {
+
+            // Tenta
+            try
+            {
+
+                // Gera novo objeto de conexao ao banco de dados
+                DatabaseHelper historico = new DatabaseHelper("aniversariantes");
+
+                // Define SQL Query
+                string query = "SELECT id, c_nome, c_email, c_tipo, t_mensagem, d_data_envio FROM dados.historico WHERE deletado = false LIMIT = 50";
+
+                // Executa a query
+                DataTable dt = historico.GetDataTable(query);
+
+                // Seta itens do datagrid com o retorno da query
+                dgridHistorico.ItemsSource = dt.DefaultView;
+
+            }
+
+            // Trata excessão
+            catch (Exception fail)
+            {
+
+                // Seta mensagem de erro
+                String error = "O seguinte erro ocorreu:\n\n";
+
+                // Anexa mensagem de erro na mensagem
+                error += fail.Message.ToString() + "\n\n";
+
+                // Apresenta mensagem na tela
+                MessageBox.Show(error);
+
+                // Fecha o formulário
+                this.Close();
+
+            }
+
+
 
         }
 
@@ -317,6 +364,7 @@ namespace Cliente {
         }
 
         #endregion ResizeWindows
+
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e) {
 
