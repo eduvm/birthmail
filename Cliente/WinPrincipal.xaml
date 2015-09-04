@@ -1,7 +1,6 @@
 ﻿<Window xmlns:HtmlEditor="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:wpf="clr-namespace:TheArtOfDev.HtmlRenderer.WPF;assembly=HtmlRenderer.WPF"
         x:Name="window" x:Class="Cliente.WinPrincipal"
         WindowStyle="None"
         Title="WinPrincipal" Height="640" Width="800" Background="#FF393D44" MinWidth="800" MinHeight="640" ResizeMode="NoResize" >
@@ -92,28 +91,28 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5">
+                    <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5" Click="btnCadAniversariantes_Click">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/presente.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE ANIVERSARIANTES</TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5">
+                    <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5" Click="btnCadMensagens_Click">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/mensagem.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE MENSAGENS</TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadTipos"  Grid.Row="2" Margin="5">
+                    <Button x:Name="btnCadTipos"  Grid.Row="2" Margin="5" Click="btnCadTipos_Click">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/tipo.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE TIPOS</TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadUsuarios" Grid.Row="3" Margin="5">
+                    <Button x:Name="btnCadUsuarios" Grid.Row="3" Margin="5" Click="btnCadUsuarios_Click">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/usuario.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE USUÁRIOS</TextBlock>
