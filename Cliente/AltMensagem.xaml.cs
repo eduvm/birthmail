@@ -26,6 +26,7 @@ namespace Cliente {
 
         // Construtor
         public AltMensagem(string operacao) {
+
             // Inicializa componentes
             InitializeComponent();
 
@@ -34,6 +35,7 @@ namespace Cliente {
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;
+
         }
 
         // Construtor
