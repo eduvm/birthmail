@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cliente", "Cliente\Cliente.csproj", "{C4A53FCB-E2CC-481D-8605-23B9302683B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servidor", "Servidor\Servidor.csproj", "{01DE1A34-BB3D-425E-A559-190E77585BA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C4A53FCB-E2CC-481D-8605-23B9302683B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4A53FCB-E2CC-481D-8605-23B9302683B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4A53FCB-E2CC-481D-8605-23B9302683B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01DE1A34-BB3D-425E-A559-190E77585BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01DE1A34-BB3D-425E-A559-190E77585BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01DE1A34-BB3D-425E-A559-190E77585BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01DE1A34-BB3D-425E-A559-190E77585BA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

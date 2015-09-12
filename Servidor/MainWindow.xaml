@@ -1,0 +1,46 @@
+﻿<Window x:Class="Servidor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Servidor Email: Aniversariantes" Height="404.683" Width="654.061" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FFF0EAEA" Margin="0,0,0,0">
+            <TextBlock FontSize="22" Text="Status do Serviço:" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Margin="10,0,0,0" />
+            <TextBlock FontSize="22" Text="OK" Foreground="#FF019C72" Margin="198,0,-194,0" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <GroupBox Margin="5,5,5,5" Header=" Últimos envios ">
+                <ListView x:Name="lvRecentes" Margin="0,5,0,0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Nome" DisplayMemberBinding="{Binding Nome}" Width="250" />
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="250" />
+                            <GridViewColumn Header="Data de Envio" Width="100"
+                                            DisplayMemberBinding="{Binding DataEnvio}" />
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+
+
+            </GroupBox>
+        </Grid>
+
+        <Grid Row="2">
+            <Button x:Name="btnFechar" Content="FECHAR" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Width="60" Height="30" Click="btnFechar_Click" />
+        </Grid>
+
+    </Grid>
+</Window>
