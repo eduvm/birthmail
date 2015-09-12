@@ -4,6 +4,8 @@ using System.Data;
 using System.Windows;
 using System.Windows.Input;
 
+using Cliente.Helpers;
+
 namespace Cliente {
 
     /// <summary>

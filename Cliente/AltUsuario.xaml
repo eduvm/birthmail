@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Cliente.AltUsuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AltUsuario" Height="292.289" Width="690" MinWidth="690" MinHeight="282" Background="#FF393D44" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" BorderThickness="2" BorderBrush="#FF9B94B9">
+        Title="Alterar Usuário" Height="292.289" Width="690" MinWidth="690" MinHeight="282" Background="#FF393D44" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" BorderThickness="2" BorderBrush="#FF9B94B9">
 
     <Window.Resources>
         <ResourceDictionary>

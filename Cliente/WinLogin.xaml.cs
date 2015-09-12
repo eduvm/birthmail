@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 
+using Cliente.Helpers;
+
 namespace Cliente {
 
     /// <summary>

@@ -1,10 +1,11 @@
-﻿using Npgsql;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 
-namespace Cliente {
+using Npgsql;
+
+namespace Cliente.Helpers {
 
     internal class DatabaseHelper {
 
@@ -50,7 +51,7 @@ namespace Cliente {
         /// <param name="connectionOpts">
         /// Um dicionário contendo todos os parametros e seus devidos valores
         /// </param>
-        public DatabaseHelper(Dictionary<String, String> connectionOpts) {
+        public DatabaseHelper(Dictionary<string, string> connectionOpts) {
 
             // Define variavel que recebera os parametros
             var str = "";

@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Shapes;
 
+using Cliente.Helpers;
+
 using WinInterop = System.Windows.Interop;
 
 #endregion
