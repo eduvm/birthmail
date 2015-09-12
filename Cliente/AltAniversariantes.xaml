@@ -11,6 +11,11 @@
                 <ResourceDictionary
                     Source="Resources/Styles/Janela.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type DatePickerTextBox}">
+                <Setter Property="Text" Value="Escolha uma data " />
+            </Style>
+            
         </ResourceDictionary>
     </Window.Resources>
 

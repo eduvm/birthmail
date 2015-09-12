@@ -23,6 +23,10 @@
                 <EventSetter Event="UIElement.MouseMove" Handler="Resizeing_Form" />
             </Style>
 
+            <Style TargetType="{x:Type DatePickerTextBox}">
+                <Setter Property="Text" Value=" " />
+            </Style>
+
         </ResourceDictionary>
     </Window.Resources>
 
