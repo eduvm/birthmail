@@ -1,7 +1,6 @@
 ﻿<Window x:Class="Cliente.AltAniversariantes"
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="AltAniversariantes" Height="269.333" Width="690" MinWidth="690" MinHeight="282" Background="#FF393D44" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" BorderThickness="2" BorderBrush="#FF9B94B9">
 
     <Window.Resources>
@@ -58,17 +57,17 @@
                             <TextBox x:Name="TbMes" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="145,84,0,0" Width="64" IsReadOnly="True" Text="{Binding SelectedDate, ElementName=DtDateNas,StringFormat='{}{0:MM}'}" />
 
                             <CheckBox x:Name="CbAtivo" Content="Ativo" HorizontalAlignment="Left" Margin="223,87,0,0" VerticalAlignment="Top"/>
-                            <Button x:Name="btnBuscarCodMsg" HorizontalAlignment="Left" VerticalAlignment="Top" Content="..." Margin="616,84,0,0" Width="22" Height="22"/>
+                            <Button x:Name="btnBuscarCodMsg" HorizontalAlignment="Left" VerticalAlignment="Top" Content="..." Margin="616,84,0,0" Width="22" Height="22" Template="{DynamicResource ButtonStyle01}"/>
 
                             <TextBlock Text="Nascimento:" Margin="426,58,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <DatePicker x:Name="DtDateNas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="497,55,0,0" Width="141" />
+                            <DatePicker x:Name="DtDateNas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="497,55,0,0" Width="141" Height="24"/>
                             <TextBlock Text="Cod Mensagem:" Margin="406,87,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbNMensagem" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="497,84,0,0" Width="112" />
 
                             <Grid Height="30" VerticalAlignment="Bottom">
 
-                                <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SALVAR" Margin="200,0,0,0" Width="60" Click="btnSalvar_Click"/>
-                                <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="FECHAR" Margin="0,0,200,0" Width="60" Click="btnFechar1_Click"/>
+                                <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SALVAR" Margin="200,0,0,0" Width="60" Click="btnSalvar_Click" Template="{DynamicResource ButtonStyle01}" Height="20"/>
+                                <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="FECHAR" Margin="0,0,200,0" Width="60" Click="btnFechar1_Click" Template="{DynamicResource ButtonStyle01}" Height="20"/>
 
                             </Grid>
 
