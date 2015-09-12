@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cliente</RootNamespace>
     <AssemblyName>Cliente</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <ExpressionBlendVersion>12.0.50429.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -125,11 +126,11 @@
     <Compile Include="WinCadMensagens.xaml.cs">
       <DependentUpon>WinCadMensagens.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WinCadTipos.xaml.cs">
-      <DependentUpon>WinCadTipos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WinCadUsuarios.xaml.cs">
       <DependentUpon>WinCadUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinConfig.xaml.cs">
+      <DependentUpon>WinConfig.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinPrincipal.xaml.cs">
       <DependentUpon>WinPrincipal.xaml</DependentUpon>
@@ -158,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -179,10 +184,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinCadMensagens.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WinCadTipos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
