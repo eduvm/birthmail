@@ -52,7 +52,7 @@
                             </DataGrid.Columns>
 
                         </DataGrid>
-                        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnAlterar_Click"/>
+                        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnAlterar_Click" Template="{DynamicResource ButtonStyle01}"/>
 
                     </Grid>
 
