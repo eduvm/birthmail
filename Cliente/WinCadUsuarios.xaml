@@ -119,31 +119,29 @@
                         <Grid Margin="5">
 
                             <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,0,0,0" Width="64" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,0,0,0" Width="64" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Text="Nome:" Margin="0,29,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox VerticalAlignment="Top" Margin="44,26,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox VerticalAlignment="Top" Margin="44,26,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Text="Email:" Margin="0,55,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox VerticalAlignment="Top" Margin="44,52,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox VerticalAlignment="Top" Margin="44,52,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Text="Usuário:" Margin="0,81,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox VerticalAlignment="Top" Margin="44,78,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                            <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,107,0,0" VerticalAlignment="Top" IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.b_admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                            <TextBox x:Name="tbPesquisar" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,81,0" Width="165" IsReadOnly="False" />
-                            <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Right" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Height="22" Template="{DynamicResource ButtonStyle01}"/>
+                            <TextBox VerticalAlignment="Top" Margin="44,78,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,107,0,0" VerticalAlignment="Top" IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="Pesquisar:" Margin="300,120,170,0" Width="auto" Height="auto" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                            <TextBox x:Name="tbPesquisar" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,117,0,0" Width="163" IsReadOnly="False" TextChanged="tbPesquisar_TextChanged" />
 
                             <DataGrid x:Name="dgridUsuarios" BorderThickness="1" Margin="0,144,0,37" IsReadOnly="True" AutoGenerateColumns="False" BorderBrush="Black">
 
                                 <DataGrid.Columns>
 
-                                    <DataGridTextColumn Binding="{Binding id}" Header="ID" />
-                                    <DataGridTextColumn Binding="{Binding c_nome}" Header="NOME" />
-                                    <DataGridTextColumn Binding="{Binding c_usuario}" Header="USUARIO" />
-                                    <DataGridTextColumn Binding="{Binding c_email}" Header="EMAIL" />
-                                    <DataGridCheckBoxColumn Binding="{Binding b_admin}" Header="ADMINISTRADOR" />
+                                    <DataGridTextColumn Binding="{Binding Id}" Header="ID" />
+                                    <DataGridTextColumn Binding="{Binding Nome}" Header="NOME" />
+                                    <DataGridTextColumn Binding="{Binding Usuario}" Header="USUARIO" />
+                                    <DataGridTextColumn Binding="{Binding Email}" Header="EMAIL" />
+                                    <DataGridCheckBoxColumn Binding="{Binding Admin}" Header="ADMINISTRADOR" />
 
                                 </DataGrid.Columns>
 

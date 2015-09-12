@@ -1,9 +1,12 @@
 ﻿#region Usings
 
 using System;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Shapes;
 
@@ -19,7 +22,6 @@ namespace Cliente {
     ///     Interaction logic for WinCadUsuarios.xaml
     /// </summary>
     public partial class WinCadUsuarios : Window {
-
         #region Construtores
 
         public WinCadUsuarios() {
@@ -51,8 +53,22 @@ namespace Cliente {
                 // Executa a query
                 var dt = usuario.GetDataTable(query);
 
-                // Seta itens do datagrid com o retorno da query
-                dgridUsuarios.ItemsSource = dt.DefaultView;
+                // Gera nova lista de pessoas
+                var pList = new Pessoas();
+
+                // Faz for para preencher a lista de pessoas
+                foreach (DataRow row in dt.Rows) {
+                    pList.Add(new Pessoa {
+                        Id = row["id"].ToString(),
+                        Nome = row["c_nome"].ToString(),
+                        Usuario = row["c_usuario"].ToString(),
+                        Email = row["c_email"].ToString(),
+                        Admin = (bool) row["b_admin"]
+                    });
+                }
+
+                // Faz bind da lista de pessoas no Grid
+                dgridUsuarios.ItemsSource = pList;
             }
 
                 // Trata excessão
@@ -72,6 +88,63 @@ namespace Cliente {
         }
 
         #endregion
+
+        #region Pesquisa
+
+        private void tbPesquisar_TextChanged(object sender, TextChangedEventArgs e) {
+            var t = (TextBox) sender;
+            var filter = t.Text;
+            var cv = CollectionViewSource.GetDefaultView(dgridUsuarios.ItemsSource);
+
+            if (filter == "") {
+                cv.Filter = null;
+            }
+            else {
+                cv.Filter = o => {
+                    var p = o as Pessoa;
+                    return (p.Nome.ToUpper().StartsWith(filter.ToUpper()));
+                };
+            }
+        }
+
+        #endregion Pesquisa
+
+        #region Classes Internas
+
+        public class Pessoa {
+
+            public string Id {
+                get;
+                set;
+            }
+
+            public string Nome {
+                get;
+                set;
+            }
+
+            public string Usuario {
+                get;
+                set;
+            }
+
+            public string Email {
+                get;
+                set;
+            }
+
+            public bool Admin {
+                get;
+                set;
+            }
+
+        }
+
+        public class Pessoas : ObservableCollection<Pessoa> {
+
+        }
+
+        #endregion Classes Internas
 
         #region Carrega WinAPI
 
