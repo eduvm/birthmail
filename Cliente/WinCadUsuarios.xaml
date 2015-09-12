@@ -147,7 +147,8 @@
                                      Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,107,0,0"
                                       VerticalAlignment="Top"
-                                      IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+                                      IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="False" />
                             <TextBlock Text="Pesquisar:" Margin="300,120,170,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Right" VerticalAlignment="Top" />
                             <TextBox x:Name="tbPesquisar" HorizontalAlignment="Right" VerticalAlignment="Top"
