@@ -121,21 +121,21 @@
                             <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,0,0,0" Width="64" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
-                            <TextBlock Text="Nome:" Margin="0,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,24,0,0" Width="511" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Nome:" Margin="0,29,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox VerticalAlignment="Top" Margin="44,26,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
-                            <TextBlock Text="Email:" Margin="0,53,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,50,0,0" Width="511" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Email:" Margin="0,55,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox VerticalAlignment="Top" Margin="44,52,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Text="Usuário:" Margin="0,81,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,78,0,0" Width="511" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox VerticalAlignment="Top" Margin="44,78,0,0" IsReadOnly="True" Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.c_usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                            <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,106,0,0" VerticalAlignment="Top" IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.b_admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,107,0,0" VerticalAlignment="Top" IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.b_admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                            <TextBox x:Name="tbPesquisar" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,84,0" Width="165" IsReadOnly="False" />
-                            <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Right" Margin="479,119,5,0" VerticalAlignment="Top" Width="75" Height="20"/>
+                            <TextBox x:Name="tbPesquisar" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,81,0" Width="165" IsReadOnly="False" />
+                            <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Right" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Height="22" Template="{DynamicResource ButtonStyle01}"/>
 
-                            <DataGrid x:Name="dgridUsuarios" BorderThickness="1" Margin="0,144,0,37" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid x:Name="dgridUsuarios" BorderThickness="1" Margin="0,144,0,37" IsReadOnly="True" AutoGenerateColumns="False" BorderBrush="Black">
 
                                 <DataGrid.Columns>
 

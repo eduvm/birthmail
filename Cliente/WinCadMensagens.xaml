@@ -86,13 +86,13 @@
                         <Grid Margin="5">
 
                             <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,0,0,0" Width="64" IsReadOnly="True" Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,0,0,0" Width="139" IsReadOnly="True" Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
-                            <TextBlock Text="Título:" Margin="0,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox VerticalAlignment="Top" Margin="44,24,10,0" IsReadOnly="True" Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.c_titulo, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Título:" Margin="0,29,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox VerticalAlignment="Top" Margin="46,26,10,0" IsReadOnly="True" Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.c_titulo, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
                             <TextBlock Text="Mensagem:" Margin="0,51,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            
+
                             <Grid Margin="0,69,0,37">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="60*"></RowDefinition>
@@ -100,7 +100,7 @@
                                 </Grid.RowDefinitions>
                                 <HtmlEditor:HtmlEditor x:Name="BrowserMsg" Height="auto" Margin="0,0,0,3" BindingContent="{Binding ElementName=dgrigMensagem, Path=SelectedItem.t_mensagem, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True" BorderBrush="Black" BorderThickness="1" Grid.Row="0"/>
 
-                                <DataGrid x:Name="dgrigMensagem" BorderThickness="1" Margin="0,3,0,0" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                                <DataGrid x:Name="dgrigMensagem" BorderThickness="1" Margin="0,3,0,0" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1" BorderBrush="Black">
 
                                     <DataGrid.Columns>
 
@@ -114,10 +114,10 @@
                                 </DataGrid>
 
                             </Grid>
-                            
-                            <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right" Margin="0,0,168,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}"/>
-                            <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnAlterar_Click" Template="{DynamicResource ButtonStyle01}"/>
-                            <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnExcluir_Click" Template="{DynamicResource ButtonStyle01}"/>
+
+                            <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right" Margin="0,0,168,0" VerticalAlignment="Bottom" Width="75" Height="22" Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}"/>
+                            <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,0" VerticalAlignment="Bottom" Width="75" Height="22" Click="btnAlterar_Click" Template="{DynamicResource ButtonStyle01}"/>
+                            <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Bottom" Width="75" Height="22" Click="btnExcluir_Click" Template="{DynamicResource ButtonStyle01}"/>
 
                         </Grid>
 
