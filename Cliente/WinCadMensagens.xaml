@@ -115,9 +115,9 @@
 
                             </Grid>
                             
-                            <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right" Margin="0,0,168,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnIncluir_Click"/>
-                            <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnAlterar_Click"/>
-                            <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnExcluir_Click"/>
+                            <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right" Margin="0,0,168,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}"/>
+                            <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnAlterar_Click" Template="{DynamicResource ButtonStyle01}"/>
+                            <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,7" VerticalAlignment="Bottom" Width="75" Height="21" Click="btnExcluir_Click" Template="{DynamicResource ButtonStyle01}"/>
 
                         </Grid>
 
