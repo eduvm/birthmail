@@ -141,8 +141,8 @@
 
             <Grid Grid.Row="2" Height="36">
                 <StatusBar Background="{x:Null}" Foreground="White">
-                    <StatusBarItem Margin="5,0,0,0" Content="TESTE" />
-                    <StatusBarItem HorizontalAlignment="Right" BorderThickness="0" Margin="0,0,20,0" Content="TESTE" />
+                    <StatusBarItem x:Name="stItem1" Margin="5,0,0,0"/>
+                    <StatusBarItem x:Name="stItem2" FontSize="11" HorizontalAlignment="Right" BorderThickness="0" Margin="0,0,20,0" Content="Criado por Eduardo Vieira Mendes"/>
                 </StatusBar>
             </Grid>
 
