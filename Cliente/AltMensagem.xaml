@@ -94,8 +94,8 @@
                             
                             <Grid Height="30" VerticalAlignment="Bottom">
 
-                                <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SALVAR" Margin="200,0,0,0" Width="60" Click="btnSalvar_Click" />
-                                <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="FECHAR" Margin="0,0,200,0" Width="60" Click="btnFechar1_Click" />
+                                <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SALVAR" Margin="200,0,0,0" Width="60" Click="btnSalvar_Click" Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="FECHAR" Margin="0,0,200,0" Width="60" Click="btnFechar1_Click" Height="20" Template="{DynamicResource ButtonStyle01}" />
 
                             </Grid>
 
