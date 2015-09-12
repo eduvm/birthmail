@@ -90,28 +90,28 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5" Click="btnCadAniversariantes_Click" MouseEnter="btnCadAniversariantes_MouseEnter" MouseLeave="ClearStatus1">
+                    <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5" Click="btnCadAniversariantes_Click" MouseEnter="btnCadAniversariantes_MouseEnter" MouseLeave="ClearStatus1" Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/presente.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE ANIVERSARIANTES</TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5" Click="btnCadMensagens_Click" MouseEnter="btnCadMensagens_MouseEnter" MouseLeave="ClearStatus1">
+                    <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5" Click="btnCadMensagens_Click" MouseEnter="btnCadMensagens_MouseEnter" MouseLeave="ClearStatus1" Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/mensagem.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE MENSAGENS</TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadUsuarios" Grid.Row="2" Margin="5" Click="btnCadUsuarios_Click" MouseEnter="btnCadUsuarios_MouseEnter" MouseLeave="ClearStatus1">
+                    <Button x:Name="btnCadUsuarios" Grid.Row="2" Margin="5" Click="btnCadUsuarios_Click" MouseEnter="btnCadUsuarios_MouseEnter" MouseLeave="ClearStatus1" Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/usuario.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE USUÁRIOS</TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnConfig"  Grid.Row="3" Margin="5" Click="btnConfig_Click" IsEnabled="False">
+                    <Button x:Name="btnConfig"  Grid.Row="3" Margin="5" Click="btnConfig_Click" IsEnabled="False" Width="190" Height="126" Template="{DynamicResource ButtonStyle01}" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/tipo.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CONFIGURAÇÕES</TextBlock>
