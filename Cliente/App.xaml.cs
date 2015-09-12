@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+﻿#region Usings
+
 using System.Windows;
 
+#endregion
+
 namespace Cliente {
+
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application {
+
     }
+
 }

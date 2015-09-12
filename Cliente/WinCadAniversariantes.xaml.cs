@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -9,11 +11,66 @@ using Cliente.Helpers;
 
 using WinInterop = System.Windows.Interop;
 
+#endregion
+
 namespace Cliente {
+
     /// <summary>
-    /// Interaction logic for WinCadAniversariantes.xaml
+    ///     Interaction logic for WinCadAniversariantes.xaml
     /// </summary>
     public partial class WinCadAniversariantes : Window {
+        #region Construtores
+
+        public WinCadAniversariantes() {
+            InitializeComponent();
+
+            // Carrega dados
+            CarregaDados();
+
+            // Define novo evento para tratar da maximizaçao da janela
+            SourceInitialized += win_SourceInitialized;
+        }
+
+        #endregion
+
+        #region Métodos
+
+        private void CarregaDados() {
+            // Limpa dataGrid
+            dgridAniversariantes.ItemsSource = null;
+
+            // Tenta
+            try {
+                // Gera novo objeto de conexao ao banco de dados
+                var objDb = new DatabaseHelper("aniversariantes");
+
+                // Define SQL Query
+                var query = "SELECT id, c_nome, c_email, d_data_completa, n_dia, n_mes, b_ativo, n_mensagem_id FROM dados.aniversariantes WHERE b_deletado <> true";
+
+                // Executa a query
+                var dt = objDb.GetDataTable(query);
+
+                // Seta itens do datagrid com o retorno da query
+                dgridAniversariantes.ItemsSource = dt.DefaultView;
+            }
+
+                // Trata excessão
+            catch (Exception fail) {
+                // Seta mensagem de erro
+                var error = "O seguinte erro ocorreu:\n\n";
+
+                // Anexa mensagem de erro na mensagem
+                error += fail.Message + "\n\n";
+
+                // Apresenta mensagem na tela
+                MessageBox.Show(error);
+
+                // Fecha o formulário
+                Close();
+            }
+        }
+
+        #endregion
 
         #region Carrega WinAPI
 
@@ -21,42 +78,25 @@ namespace Cliente {
         internal static extern bool GetMonitorInfo(IntPtr hMonitor, MONITORINFO lpmi);
 
         /// <summary>
-        ///
         /// </summary>
         [DllImport("User32")]
         internal static extern IntPtr MonitorFromWindow(IntPtr handle, int flags);
 
         #endregion Carrega WinAPI
 
-#region Construtores
-
-        public WinCadAniversariantes() {
-
-            InitializeComponent();
-
-            // Carrega dados
-            CarregaDados();
-
-            // Define novo evento para tratar da maximizaçao da janela
-            this.SourceInitialized += new EventHandler(win_SourceInitialized);
-
-        }
-
-        #endregion
-
         #region Maximização
 
         private void win_SourceInitialized(object sender, EventArgs e) {
-            System.IntPtr handle = (new WinInterop.WindowInteropHelper(this)).Handle;
-            WinInterop.HwndSource.FromHwnd(handle).AddHook(new WinInterop.HwndSourceHook(WindowProc));
+            var handle = (new WinInterop.WindowInteropHelper(this)).Handle;
+            WinInterop.HwndSource.FromHwnd(handle).AddHook(WindowProc);
         }
 
-        private static System.IntPtr WindowProc(
-              System.IntPtr hwnd,
-              int msg,
-              System.IntPtr wParam,
-              System.IntPtr lParam,
-              ref bool handled) {
+        private static IntPtr WindowProc(
+            IntPtr hwnd,
+            int msg,
+            IntPtr wParam,
+            IntPtr lParam,
+            ref bool handled) {
             switch (msg) {
                 case 0x0024:
                     WmGetMinMaxInfo(hwnd, lParam);
@@ -64,23 +104,21 @@ namespace Cliente {
                     break;
             }
 
-            return (System.IntPtr)0;
+            return (IntPtr) 0;
         }
 
-        private static void WmGetMinMaxInfo(System.IntPtr hwnd, System.IntPtr lParam) {
-
-            MINMAXINFO mmi = (MINMAXINFO)Marshal.PtrToStructure(lParam, typeof(MINMAXINFO));
+        private static void WmGetMinMaxInfo(IntPtr hwnd, IntPtr lParam) {
+            var mmi = (MINMAXINFO) Marshal.PtrToStructure(lParam, typeof (MINMAXINFO));
 
             // Adjust the maximized size and position to fit the work area of the correct monitor
-            int MONITOR_DEFAULTTONEAREST = 0x00000002;
-            System.IntPtr monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
+            var MONITOR_DEFAULTTONEAREST = 0x00000002;
+            var monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
 
-            if (monitor != System.IntPtr.Zero) {
-
-                MONITORINFO monitorInfo = new MONITORINFO();
+            if (monitor != IntPtr.Zero) {
+                var monitorInfo = new MONITORINFO();
                 GetMonitorInfo(monitor, monitorInfo);
-                RECT rcWorkArea = monitorInfo.rcWork;
-                RECT rcMonitorArea = monitorInfo.rcMonitor;
+                var rcWorkArea = monitorInfo.rcWork;
+                var rcMonitorArea = monitorInfo.rcMonitor;
                 mmi.ptMaxPosition.x = Math.Abs(rcWorkArea.left - rcMonitorArea.left);
                 mmi.ptMaxPosition.y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
                 mmi.ptMaxSize.x = Math.Abs(rcWorkArea.right - rcWorkArea.left);
@@ -91,41 +129,48 @@ namespace Cliente {
         }
 
         /// <summary>
-        /// POINT aka POINTAPI
+        ///     POINT aka POINTAPI
         /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         public struct POINT {
 
             /// <summary>
-            /// x coordinate of point.
+            ///     x coordinate of point.
             /// </summary>
             public int x;
 
             /// <summary>
-            /// y coordinate of point.
+            ///     y coordinate of point.
             /// </summary>
             public int y;
 
             /// <summary>
-            /// Construct a point of coordinates (x,y).
+            ///     Construct a point of coordinates (x,y).
             /// </summary>
             public POINT(int x, int y) {
                 this.x = x;
                 this.y = y;
             }
+
         }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct MINMAXINFO {
+
             public POINT ptReserved;
+
             public POINT ptMaxSize;
+
             public POINT ptMaxPosition;
+
             public POINT ptMinTrackSize;
+
             public POINT ptMaxTrackSize;
+
         };
 
         private void win_Loaded(object sender, RoutedEventArgs e) {
-            this.WindowState = WindowState.Maximized;
+            WindowState = WindowState.Maximized;
         }
 
         /// <summary>
@@ -135,7 +180,7 @@ namespace Cliente {
 
             /// <summary>
             /// </summary>
-            public int cbSize = Marshal.SizeOf(typeof(MONITORINFO));
+            public int cbSize = Marshal.SizeOf(typeof (MONITORINFO));
 
             /// <summary>
             /// </summary>
@@ -148,6 +193,7 @@ namespace Cliente {
             /// <summary>
             /// </summary>
             public int dwFlags = 0;
+
         }
 
         /// <summary> Win32 </summary>
@@ -167,13 +213,13 @@ namespace Cliente {
             public int bottom;
 
             /// <summary> Win32 </summary>
-            public static readonly RECT Empty = new RECT();
+            public static readonly RECT Empty;
 
             /// <summary> Win32 </summary>
             public int Width {
                 get {
                     return Math.Abs(right - left);
-                }  // Abs needed for BIDI OS
+                } // Abs needed for BIDI OS
             }
 
             /// <summary> Win32 </summary>
@@ -193,10 +239,10 @@ namespace Cliente {
 
             /// <summary> Win32 </summary>
             public RECT(RECT rcSrc) {
-                this.left = rcSrc.left;
-                this.top = rcSrc.top;
-                this.right = rcSrc.right;
-                this.bottom = rcSrc.bottom;
+                left = rcSrc.left;
+                top = rcSrc.top;
+                right = rcSrc.right;
+                bottom = rcSrc.bottom;
             }
 
             /// <summary> Win32 </summary>
@@ -209,7 +255,7 @@ namespace Cliente {
 
             /// <summary> Return a user friendly representation of this struct </summary>
             public override string ToString() {
-                if (this == RECT.Empty) {
+                if (this == Empty) {
                     return "RECT {Empty}";
                 }
                 return "RECT { left : " + left + " / top : " + top + " / right : " + right + " / bottom : " + bottom + " }";
@@ -220,7 +266,7 @@ namespace Cliente {
                 if (!(obj is Rect)) {
                     return false;
                 }
-                return (this == (RECT)obj);
+                return (this == (RECT) obj);
             }
 
             /// <summary>Return the HashCode for this struct (not garanteed to be unique)</summary>
@@ -244,10 +290,10 @@ namespace Cliente {
 
         #region ResizeWindows
 
-        private bool ResizeInProcess = false;
+        private bool ResizeInProcess;
 
         private void Resize_Init(object sender, MouseButtonEventArgs e) {
-            Rectangle senderRect = sender as Rectangle;
+            var senderRect = sender as Rectangle;
             if (senderRect != null) {
                 ResizeInProcess = true;
                 senderRect.CaptureMouse();
@@ -255,7 +301,7 @@ namespace Cliente {
         }
 
         private void Resize_End(object sender, MouseButtonEventArgs e) {
-            Rectangle senderRect = sender as Rectangle;
+            var senderRect = sender as Rectangle;
             if (senderRect != null) {
                 ResizeInProcess = false;
                 ;
@@ -264,66 +310,49 @@ namespace Cliente {
         }
 
         private void Resizeing_Form(object sender, MouseEventArgs e) {
-
             if (ResizeInProcess) {
-
-                Rectangle senderRect = sender as Rectangle;
-                Window mainWindow = senderRect.Tag as Window;
+                var senderRect = sender as Rectangle;
+                var mainWindow = senderRect.Tag as Window;
 
                 if (senderRect != null) {
-
-                    double width = e.GetPosition(mainWindow).X;
-                    double height = e.GetPosition(mainWindow).Y;
+                    var width = e.GetPosition(mainWindow).X;
+                    var height = e.GetPosition(mainWindow).Y;
                     senderRect.CaptureMouse();
 
                     if (senderRect.Name.ToLower().Contains("right")) {
-
                         width += 5;
-                        if (width > 0)
+                        if (width > 0) {
                             mainWindow.Width = width;
+                        }
                     }
 
                     if (senderRect.Name.ToLower().Contains("left")) {
-
                         width -= 5;
                         mainWindow.Left += width;
                         width = mainWindow.Width - width;
                         if (width > 0) {
-
                             mainWindow.Width = width;
-
                         }
-
                     }
 
                     if (senderRect.Name.ToLower().Contains("bottom")) {
-
                         height += 5;
                         if (height > 0) {
-
                             mainWindow.Height = height;
                         }
-
                     }
 
                     if (senderRect.Name.ToLower().Contains("top")) {
-
                         height -= 5;
                         mainWindow.Top += height;
                         height = mainWindow.Height - height;
 
                         if (height > 0) {
-
                             mainWindow.Height = height;
-
                         }
-
                     }
-
                 }
-
             }
-
         }
 
         #endregion ResizeWindows
@@ -331,66 +360,45 @@ namespace Cliente {
         #region Botões
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e) {
-
-            this.DragMove();
-
+            DragMove();
         }
 
         private void btnFechar_Click(object sender, RoutedEventArgs e) {
-
-            this.Close();
-
+            Close();
         }
 
         private void btnMax_Click(object sender, RoutedEventArgs e) {
-
-            if (this.WindowState == System.Windows.WindowState.Normal) {
-
-                this.WindowState = System.Windows.WindowState.Maximized;
-
+            if (WindowState == WindowState.Normal) {
+                WindowState = WindowState.Maximized;
             }
 
             else {
-
-                this.WindowState = System.Windows.WindowState.Normal;
-
+                WindowState = WindowState.Normal;
             }
-
         }
 
         private void btnAlterar_Click(object sender, RoutedEventArgs e) {
-
             // Verifica se existe usuario selecionado
             if (dgridAniversariantes.SelectedItem == null) {
-
                 MessageBox.Show("Você deve selecionar um aniversariante para alterar");
-
-                return;
-
             }
 
-            else {
+            // Defino DataRow para poder pegar item selecionado
+            var rowview = dgridAniversariantes.SelectedItem as DataRowView;
 
-                // Defino DataRow para poder pegar item selecionado
-                DataRowView rowview = dgridAniversariantes.SelectedItem as DataRowView;
+            // Defino valor da coluna id
+            var strId = rowview.Row["id"].ToString();
 
-                // Defino valor da coluna id
-                string strId = rowview.Row["id"].ToString();
+            // Defino nova janela passando id e operação
+            var AlteraAniversariantes = new AltAniversariantes(strId, "alterar");
 
-                // Defino nova janela passando id e operação
-                AltAniversariantes AlteraAniversariantes = new AltAniversariantes(strId, "alterar");
+            AlteraAniversariantes.ShowDialog();
 
-                AlteraAniversariantes.ShowDialog();
-
-                // Update DataGrid
-                CarregaDados();
-
-            }
-
+            // Update DataGrid
+            CarregaDados();
         }
 
         private void btnIncluir_Click(object sender, RoutedEventArgs e) {
-
             // Defino nova janela passando id e operação
             var alterarAniversariante = new AltAniversariantes("incluir");
 
@@ -399,18 +407,15 @@ namespace Cliente {
 
             // Update DataGrid
             CarregaDados();
-
         }
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e) {
-
             // Verifica se existe usuario selecionado
             if (dgridAniversariantes.SelectedItem == null) {
                 MessageBox.Show("Você deve selecionar um aniversariante para excluir");
             }
 
             else {
-
                 // Defino DataRow para poder pegar item selecionado
                 var rowview = dgridAniversariantes.SelectedItem as DataRowView;
 
@@ -421,69 +426,18 @@ namespace Cliente {
                 var deletar = new DatabaseHelper();
 
                 if (deletar.Delete("dados.aniversariantes", "id = " + strId)) {
-
                     MessageBox.Show("Aniversariante deletadado");
 
                     CarregaDados();
-
                 }
 
                 else {
-
                     MessageBox.Show("Ocorreu erro ao tentar deletar o aniversariante");
-
                 }
             }
         }
 
-
-
         #endregion Botões
-
-        #region Métodos
-
-        private void CarregaDados() {
-
-            // Limpa dataGrid
-            dgridAniversariantes.ItemsSource = null;
-
-            // Tenta
-            try {
-
-                // Gera novo objeto de conexao ao banco de dados
-                DatabaseHelper objDb = new DatabaseHelper("aniversariantes");
-
-                // Define SQL Query
-                String query = "SELECT id, c_nome, c_email, d_data_completa, n_dia, n_mes, b_ativo, n_mensagem_id FROM dados.aniversariantes WHERE b_deletado <> true";
-
-                // Executa a query
-                DataTable dt = objDb.GetDataTable(query);
-
-                // Seta itens do datagrid com o retorno da query
-                dgridAniversariantes.ItemsSource = dt.DefaultView;
-
-            }
-
-            // Trata excessão
-            catch (Exception fail) {
-
-                // Seta mensagem de erro
-                String error = "O seguinte erro ocorreu:\n\n";
-
-                // Anexa mensagem de erro na mensagem
-                error += fail.Message.ToString() + "\n\n";
-
-                // Apresenta mensagem na tela
-                MessageBox.Show(error);
-
-                // Fecha o formulário
-                this.Close();
-
-            }
-
-        }
-
-        #endregion
-
     }
+
 }

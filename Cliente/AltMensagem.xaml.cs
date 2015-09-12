@@ -20,15 +20,14 @@ namespace Cliente {
     /// </summary>
     public partial class AltMensagem : Window {
 
-        private readonly string _idMensagem;
-
         private readonly string _codOpe;
+
+        private readonly string _idMensagem;
 
         #region Construtores
 
         // Construtor
         public AltMensagem(string operacao) {
-
             // Inicializa componentes
             InitializeComponent();
 
@@ -37,7 +36,6 @@ namespace Cliente {
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;
-
         }
 
         // Construtor

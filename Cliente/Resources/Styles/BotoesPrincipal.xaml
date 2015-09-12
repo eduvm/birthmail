@@ -2,79 +2,92 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ControlTemplate x:Key="ButtonStyle01" TargetType="{x:Type Button}">
-        
-    	<Grid>
-            
-    		<VisualStateManager.VisualStateGroups>
-                
-    			<VisualStateGroup x:Name="CommonStates">
-                    
-    				<VisualState x:Name="Normal">
-                        
-    					<Storyboard>
-                            
-    						<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-                                
-    							<EasingColorKeyFrame KeyTime="0" Value="#FFECECEC"/>
-                                
+
+        <Grid>
+
+            <VisualStateManager.VisualStateGroups>
+
+                <VisualStateGroup x:Name="CommonStates">
+
+                    <VisualState x:Name="Normal">
+
+                        <Storyboard>
+
+                            <ColorAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                Storyboard.TargetName="rectangle">
+
+                                <EasingColorKeyFrame KeyTime="0" Value="#FFECECEC" />
+
                             </ColorAnimationUsingKeyFrames>
-    					
-                        
+
+
                         </Storyboard>
-    				
+
                     </VisualState>
 
                     <VisualState x:Name="MouseOver">
-    					
+
                         <Storyboard>
-    						
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-    							
-                                <EasingColorKeyFrame KeyTime="0" Value="Gray"/>
-    						
+
+                            <ColorAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                Storyboard.TargetName="rectangle">
+
+                                <EasingColorKeyFrame KeyTime="0" Value="Gray" />
+
                             </ColorAnimationUsingKeyFrames>
-    					
+
                         </Storyboard>
-    				
+
                     </VisualState>
 
                     <VisualState x:Name="Pressed">
-    					
+
                         <Storyboard>
-    						
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-    							
-                                <EasingColorKeyFrame KeyTime="0" Value="#FF544D61"/>
-    						
+
+                            <ColorAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                Storyboard.TargetName="rectangle">
+
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF544D61" />
+
                             </ColorAnimationUsingKeyFrames>
-    					
+
                         </Storyboard>
-    				
+
                     </VisualState>
 
                     <VisualState x:Name="Disabled">
-    					
+
                         <Storyboard>
-    						
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-    							
-                                <EasingColorKeyFrame KeyTime="0" Value="#FF464646"/>
-    						
+
+                            <ColorAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                Storyboard.TargetName="rectangle">
+
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF464646" />
+
                             </ColorAnimationUsingKeyFrames>
-    					
+
                         </Storyboard>
-    				
+
                     </VisualState>
-    			
+
                 </VisualStateGroup>
-    		
+
             </VisualStateManager.VisualStateGroups>
 
-            <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="{TemplateBinding Height}" Stroke="#FF4F4E64" VerticalAlignment="Top" Width="{TemplateBinding Width}" RadiusY="0" Fill="#FF535353" StrokeThickness="2"/>
-            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-    	
+            <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="{TemplateBinding Height}"
+                       Stroke="#FF4F4E64" VerticalAlignment="Top" Width="{TemplateBinding Width}" RadiusY="0"
+                       Fill="#FF535353" StrokeThickness="2" />
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
         </Grid>
-    
+
     </ControlTemplate>
 
 </ResourceDictionary>

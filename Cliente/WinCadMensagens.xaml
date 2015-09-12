@@ -1,8 +1,10 @@
 ﻿<Window x:Class="Cliente.WinCadMensagens"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:HtmlEditor="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor" 
-        Title="Cadastro de Mensagens" Height="600" Width="800" MinWidth="800" MinHeight="600" Background="#FF393D44" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" BorderThickness="2" BorderBrush="#FF9B94B9">
+        xmlns:HtmlEditor="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor"
+        Title="Cadastro de Mensagens" Height="600" Width="800" MinWidth="800" MinHeight="600" Background="#FF393D44"
+        ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" BorderThickness="2"
+        BorderBrush="#FF9B94B9">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -18,51 +20,55 @@
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary
-                  Source="Resources/Styles/Janela.xaml" />
+                    Source="Resources/Styles/Janela.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid>
         <Rectangle x:Name="leftSizeGrip"
-            Width="7"
-            HorizontalAlignment="Left"
-            Cursor="SizeWE"
-            Style="{StaticResource RectBorderStyle}" />
+                   Width="7"
+                   HorizontalAlignment="Left"
+                   Cursor="SizeWE"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle x:Name="rightSizeGrip"
-            Width="7"
-            HorizontalAlignment="Right"
-            Cursor="SizeWE"
-            Style="{StaticResource RectBorderStyle}" />
+                   Width="7"
+                   HorizontalAlignment="Right"
+                   Cursor="SizeWE"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle x:Name="topSizeGrip"
-            Height="7"
-            VerticalAlignment="Top"
-            Cursor="SizeNS"
-            Style="{StaticResource RectBorderStyle}" />
+                   Height="7"
+                   VerticalAlignment="Top"
+                   Cursor="SizeNS"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle x:Name="bottomSizeGrip"
-            Height="7"
-            VerticalAlignment="Bottom"
-            Cursor="SizeNS"
-            Style="{StaticResource RectBorderStyle}" />
+                   Height="7"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNS"
+                   Style="{StaticResource RectBorderStyle}" />
         <!--  Corners  -->
         <Rectangle Name="bottomRightSizeGrip"
-            Width="7"
-            Height="7"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Cursor="SizeNWSE"
-            Style="{StaticResource RectBorderStyle}" />
+                   Width="7"
+                   Height="7"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNWSE"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle Name="bottomLeftSizeGrip"
-            Width="7"
-            Height="7"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            Cursor="SizeNESW"
-            Style="{StaticResource RectBorderStyle}" />
+                   Width="7"
+                   Height="7"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNESW"
+                   Style="{StaticResource RectBorderStyle}" />
 
-        <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
-        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" />
-        <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0" Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnFechar_Click" />
+        <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
+        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" />
+        <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
+                Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Width="33" Click="btnFechar_Click" />
 
         <Grid>
             <Grid.RowDefinitions>
@@ -73,40 +79,53 @@
 
             <Grid Grid.Row="0">
                 <Rectangle x:Name="titleBar" MouseDown="titleBar_MouseDown" Panel.ZIndex="10" Fill="#00000000" />
-                <TextBlock Text="MASTER" HorizontalAlignment="Left" FontSize="34" FontFamily="Segoe WP Black" Foreground="White" Margin="10,0,0,0" />
-                <TextBlock Text="AUTO PARTS" HorizontalAlignment="Left" FontFamily="Segoe WP Black" Foreground="White" Margin="163,0,0,9" RenderTransformOrigin="1.545,0.6" VerticalAlignment="Bottom" FontSize="16" />
+                <TextBlock Text="MASTER" HorizontalAlignment="Left" FontSize="34" FontFamily="Segoe WP Black"
+                           Foreground="White" Margin="10,0,0,0" />
+                <TextBlock Text="AUTO PARTS" HorizontalAlignment="Left" FontFamily="Segoe WP Black" Foreground="White"
+                           Margin="163,0,0,9" RenderTransformOrigin="1.545,0.6" VerticalAlignment="Bottom"
+                           FontSize="16" />
             </Grid>
             <!-- Barra de título -->
 
-            <Grid  Background="#FFC1C1C1" Margin="5,0" Grid.Row="1">
+            <Grid Background="#FFC1C1C1" Margin="5,0" Grid.Row="1">
 
                 <Grid Background="White">
                     <GroupBox Header=" CADASTRO DE USUÁRIOS" Margin="5" BorderBrush="#FF515D64" BorderThickness="1">
 
                         <Grid Margin="5">
 
-                            <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,0,0,0" Width="139" IsReadOnly="True" Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,0,0,0" Width="139"
+                                     IsReadOnly="True"
+                                     Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
-                            <TextBlock Text="Título:" Margin="0,29,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox VerticalAlignment="Top" Margin="46,26,10,0" IsReadOnly="True" Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.c_titulo, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Título:" Margin="0,29,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox VerticalAlignment="Top" Margin="46,26,10,0" IsReadOnly="True"
+                                     Text="{Binding ElementName=dgrigMensagem, Path=SelectedItem.c_titulo, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
 
-                            <TextBlock Text="Mensagem:" Margin="0,51,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBlock Text="Mensagem:" Margin="0,51,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
 
                             <Grid Margin="0,69,0,37">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="60*"></RowDefinition>
-                                    <RowDefinition Height="40*"></RowDefinition>
+                                    <RowDefinition Height="60*" />
+                                    <RowDefinition Height="40*" />
                                 </Grid.RowDefinitions>
-                                <HtmlEditor:HtmlEditor x:Name="BrowserMsg" Height="auto" Margin="0,0,0,3" BindingContent="{Binding ElementName=dgrigMensagem, Path=SelectedItem.t_mensagem, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True" BorderBrush="Black" BorderThickness="1" Grid.Row="0"/>
+                                <HtmlEditor:HtmlEditor x:Name="BrowserMsg" Height="auto" Margin="0,0,0,3"
+                                                       BindingContent="{Binding ElementName=dgrigMensagem, Path=SelectedItem.t_mensagem, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                                                       ScrollViewer.CanContentScroll="True" BorderBrush="Black"
+                                                       BorderThickness="1" Grid.Row="0" />
 
-                                <DataGrid x:Name="dgrigMensagem" BorderThickness="1" Margin="0,3,0,0" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1" BorderBrush="Black">
+                                <DataGrid x:Name="dgrigMensagem" BorderThickness="1" Margin="0,3,0,0" IsReadOnly="True"
+                                          AutoGenerateColumns="False" Grid.Row="1" BorderBrush="Black">
 
                                     <DataGrid.Columns>
 
-                                        <DataGridTextColumn Binding="{Binding id}" Header="Código" Width="60"  />
+                                        <DataGridTextColumn Binding="{Binding id}" Header="Código" Width="60" />
                                         <DataGridTextColumn Binding="{Binding c_titulo}" Header="Título" Width="180" />
-                                        <DataGridTextColumn Binding="{Binding t_mensagem}" Header="Mensagem" Width="*"/>
+                                        <DataGridTextColumn Binding="{Binding t_mensagem}" Header="Mensagem" Width="*" />
 
 
                                     </DataGrid.Columns>
@@ -115,9 +134,15 @@
 
                             </Grid>
 
-                            <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right" Margin="0,0,168,0" VerticalAlignment="Bottom" Width="75" Height="22" Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}"/>
-                            <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,0" VerticalAlignment="Bottom" Width="75" Height="22" Click="btnAlterar_Click" Template="{DynamicResource ButtonStyle01}"/>
-                            <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Bottom" Width="75" Height="22" Click="btnExcluir_Click" Template="{DynamicResource ButtonStyle01}"/>
+                            <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right"
+                                    Margin="0,0,168,0" VerticalAlignment="Bottom" Width="75" Height="22"
+                                    Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}" />
+                            <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,0"
+                                    VerticalAlignment="Bottom" Width="75" Height="22" Click="btnAlterar_Click"
+                                    Template="{DynamicResource ButtonStyle01}" />
+                            <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,0"
+                                    VerticalAlignment="Bottom" Width="75" Height="22" Click="btnExcluir_Click"
+                                    Template="{DynamicResource ButtonStyle01}" />
 
                         </Grid>
 
@@ -133,8 +158,9 @@
 
             <Grid Grid.Row="2" Height="36">
                 <StatusBar Background="{x:Null}" Foreground="White">
-                    <StatusBarItem x:Name="stItem1" Margin="5,0,0,0"/>
-                    <StatusBarItem x:Name="stItem2" FontSize="11" HorizontalAlignment="Right" BorderThickness="0" Margin="0,0,20,0" Content="Criado por Eduardo Vieira Mendes"/>
+                    <StatusBarItem x:Name="stItem1" Margin="5,0,0,0" />
+                    <StatusBarItem x:Name="stItem2" FontSize="11" HorizontalAlignment="Right" BorderThickness="0"
+                                   Margin="0,0,20,0" Content="Criado por Eduardo Vieira Mendes" />
                 </StatusBar>
             </Grid>
 

@@ -2,7 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Name="window" x:Class="Cliente.WinPrincipal"
         WindowStyle="None"
-        Title="Master - Aniversariantes" Height="640" Width="800" Background="#FF393D44" MinWidth="800" MinHeight="640" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="2" BorderBrush="#FF9B94B9" >
+        Title="Master - Aniversariantes" Height="640" Width="800" Background="#FF393D44" MinWidth="800" MinHeight="640"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="2" BorderBrush="#FF9B94B9">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -11,110 +12,134 @@
                 <Setter Property="Focusable" Value="False" />
                 <Setter Property="Fill" Value="Transparent" />
                 <Setter Property="Tag" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                <EventSetter Event="UIElement.MouseLeftButtonDown" Handler="Resize_Init"/>
-                <EventSetter Event="UIElement.MouseLeftButtonUp" Handler="Resize_End"/>
-                <EventSetter Event="UIElement.MouseMove" Handler="Resizeing_Form"/>
+                <EventSetter Event="UIElement.MouseLeftButtonDown" Handler="Resize_Init" />
+                <EventSetter Event="UIElement.MouseLeftButtonUp" Handler="Resize_End" />
+                <EventSetter Event="UIElement.MouseMove" Handler="Resizeing_Form" />
             </Style>
 
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary 
-                  Source="Resources/Styles/Janela.xaml"/>
+                <ResourceDictionary
+                    Source="Resources/Styles/Janela.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid>
         <Rectangle x:Name="leftSizeGrip"
-            Width="7"
-            HorizontalAlignment="Left"
-            Cursor="SizeWE"
-            Style="{StaticResource RectBorderStyle}"/>
+                   Width="7"
+                   HorizontalAlignment="Left"
+                   Cursor="SizeWE"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle x:Name="rightSizeGrip"
-            Width="7"
-            HorizontalAlignment="Right"
-            Cursor="SizeWE"
-            Style="{StaticResource RectBorderStyle}"/>
+                   Width="7"
+                   HorizontalAlignment="Right"
+                   Cursor="SizeWE"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle x:Name="topSizeGrip"
-            Height="7"
-            VerticalAlignment="Top"
-            Cursor="SizeNS"
-            Style="{StaticResource RectBorderStyle}"/>
+                   Height="7"
+                   VerticalAlignment="Top"
+                   Cursor="SizeNS"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle x:Name="bottomSizeGrip"
-            Height="7"
-            VerticalAlignment="Bottom"
-            Cursor="SizeNS"
-            Style="{StaticResource RectBorderStyle}"/>
+                   Height="7"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNS"
+                   Style="{StaticResource RectBorderStyle}" />
         <!--  Corners  -->
         <Rectangle Name="bottomRightSizeGrip"
-            Width="7"
-            Height="7"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Cursor="SizeNWSE"
-            Style="{StaticResource RectBorderStyle}"/>
+                   Width="7"
+                   Height="7"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNWSE"
+                   Style="{StaticResource RectBorderStyle}" />
         <Rectangle Name="bottomLeftSizeGrip"
-            Width="7"
-            Height="7"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            Cursor="SizeNESW"
-            Style="{StaticResource RectBorderStyle}"/>
+                   Width="7"
+                   Height="7"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNESW"
+                   Style="{StaticResource RectBorderStyle}" />
 
-        <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0" Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnFechar_Click"/>
+        <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
+                Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Width="33" Click="btnFechar_Click" />
 
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition/>
-                <RowDefinition Height="36"/>
+                <RowDefinition Height="50" />
+                <RowDefinition />
+                <RowDefinition Height="36" />
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Rectangle x:Name="titleBar" MouseDown="titleBar_MouseDown" Panel.ZIndex="10" Fill="#00000000"/>
-                <TextBlock Text="MASTER" HorizontalAlignment="Left" FontSize="34" FontFamily="Segoe WP Black" Foreground="White" Margin="10,0,0,0" />
-                <TextBlock Text="AUTO PARTS" HorizontalAlignment="Left" FontFamily="Segoe WP Black" Foreground="White" Margin="163,0,0,9" RenderTransformOrigin="1.545,0.6" VerticalAlignment="Bottom" FontSize="16" />
+                <Rectangle x:Name="titleBar" MouseDown="titleBar_MouseDown" Panel.ZIndex="10" Fill="#00000000" />
+                <TextBlock Text="MASTER" HorizontalAlignment="Left" FontSize="34" FontFamily="Segoe WP Black"
+                           Foreground="White" Margin="10,0,0,0" />
+                <TextBlock Text="AUTO PARTS" HorizontalAlignment="Left" FontFamily="Segoe WP Black" Foreground="White"
+                           Margin="163,0,0,9" RenderTransformOrigin="1.545,0.6" VerticalAlignment="Bottom"
+                           FontSize="16" />
             </Grid>
             <!-- Barra de título -->
 
-            <Grid  Background="#FFC1C1C1" Margin="5,0" Grid.Row="1">
+            <Grid Background="#FFC1C1C1" Margin="5,0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Grid Margin="0"  Grid.Column="0" Background="#FF8D8D8D" >
+                <Grid Margin="0" Grid.Column="0" Background="#FF8D8D8D">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5" Click="btnCadAniversariantes_Click" MouseEnter="btnCadAniversariantes_MouseEnter" MouseLeave="ClearStatus1" Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
+                    <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5" Click="btnCadAniversariantes_Click"
+                            MouseEnter="btnCadAniversariantes_MouseEnter" MouseLeave="ClearStatus1"
+                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/presente.png" Width="64" Height="64" />
-                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE ANIVERSARIANTES</TextBlock>
+                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                       Margin="0,10,0,0">
+                                CADASTRO DE ANIVERSARIANTES
+                            </TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5" Click="btnCadMensagens_Click" MouseEnter="btnCadMensagens_MouseEnter" MouseLeave="ClearStatus1" Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
+                    <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5" Click="btnCadMensagens_Click"
+                            MouseEnter="btnCadMensagens_MouseEnter" MouseLeave="ClearStatus1"
+                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/mensagem.png" Width="64" Height="64" />
-                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE MENSAGENS</TextBlock>
+                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                       Margin="0,10,0,0">
+                                CADASTRO DE MENSAGENS
+                            </TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnCadUsuarios" Grid.Row="2" Margin="5" Click="btnCadUsuarios_Click" MouseEnter="btnCadUsuarios_MouseEnter" MouseLeave="ClearStatus1" Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
+                    <Button x:Name="btnCadUsuarios" Grid.Row="2" Margin="5" Click="btnCadUsuarios_Click"
+                            MouseEnter="btnCadUsuarios_MouseEnter" MouseLeave="ClearStatus1"
+                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/usuario.png" Width="64" Height="64" />
-                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CADASTRO DE USUÁRIOS</TextBlock>
+                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                       Margin="0,10,0,0">
+                                CADASTRO DE USUÁRIOS
+                            </TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnConfig"  Grid.Row="3" Margin="5" Click="btnConfig_Click" IsEnabled="False" Width="190" Height="126" Template="{DynamicResource ButtonStyle01}" Foreground="Black">
+                    <Button x:Name="btnConfig" Grid.Row="3" Margin="5" Click="btnConfig_Click" IsEnabled="False"
+                            Width="190" Height="126" Template="{DynamicResource ButtonStyle01}" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/tipo.png" Width="64" Height="64" />
-                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0">CONFIGURAÇÕES</TextBlock>
+                            <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                       Margin="0,10,0,0">
+                                CONFIGURAÇÕES
+                            </TextBlock>
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -122,21 +147,40 @@
                     <GroupBox Header=" ENVIOS RECENTES" Margin="5" BorderBrush="#FF515D64" BorderThickness="1">
 
                         <Grid Margin="5">
-                            <TextBlock Text="Nome:" Margin="0,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBlock Text="Email:" Margin="0,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="259" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_email, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBlock Text="Data de Envio:" Margin="396,3,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,0,0" Width="85" IsReadOnly="True" Text="{Binding ElementName=dgridHistorico, StringFormat=\{0:dd/MM/yyyy\}, Path=SelectedItem.d_data_envio, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
-                            <TextBlock Text="Mensagem:" Margin="310,27,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,24,0,0" Width="182" IsReadOnly="True" Text="{Binding SelectedItem.c_titulo_mensagem, ElementName=dgridHistorico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGrid x:Name="dgridHistorico" BorderThickness="1" Margin="0,51,0,0" IsReadOnly="True" AutoGenerateColumns="False" BorderBrush="Black">
+                            <TextBlock Text="Nome:" Margin="0,3,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346"
+                                     IsReadOnly="True"
+                                     Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Email:" Margin="0,27,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="259"
+                                     IsReadOnly="True"
+                                     Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_email, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Data de Envio:" Margin="396,3,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,0,0" Width="85"
+                                     IsReadOnly="True"
+                                     Text="{Binding ElementName=dgridHistorico, StringFormat=\{0:dd/MM/yyyy\}, Path=SelectedItem.d_data_envio, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="Mensagem:" Margin="310,27,0,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,24,0,0" Width="182"
+                                     IsReadOnly="True"
+                                     Text="{Binding SelectedItem.c_titulo_mensagem, ElementName=dgridHistorico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGrid x:Name="dgridHistorico" BorderThickness="1" Margin="0,51,0,0" IsReadOnly="True"
+                                      AutoGenerateColumns="False" BorderBrush="Black">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="ID"/>
-                                    <DataGridTextColumn Binding="{Binding c_nome}" ClipboardContentBinding="{x:Null}" Header="NOME"/>
-                                    <DataGridTextColumn Binding="{Binding c_email}" ClipboardContentBinding="{x:Null}" Header="EMAIL"/>
-                                    <DataGridTextColumn Binding="{Binding c_titulo_mensagem}" ClipboardContentBinding="{x:Null}" Header="MENSAGEM"/>
-                                    <DataGridTextColumn Binding="{Binding d_data_envio, StringFormat=\{0:dd/MM/yyyy\}}" ClipboardContentBinding="{x:Null}" Header="DATA DE ENVIO" Width="*"/>
+                                    <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}"
+                                                        Header="ID" />
+                                    <DataGridTextColumn Binding="{Binding c_nome}" ClipboardContentBinding="{x:Null}"
+                                                        Header="NOME" />
+                                    <DataGridTextColumn Binding="{Binding c_email}" ClipboardContentBinding="{x:Null}"
+                                                        Header="EMAIL" />
+                                    <DataGridTextColumn Binding="{Binding c_titulo_mensagem}"
+                                                        ClipboardContentBinding="{x:Null}" Header="MENSAGEM" />
+                                    <DataGridTextColumn Binding="{Binding d_data_envio, StringFormat=\{0:dd/MM/yyyy\}}"
+                                                        ClipboardContentBinding="{x:Null}" Header="DATA DE ENVIO"
+                                                        Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
 
@@ -154,15 +198,18 @@
 
             <Grid Grid.Row="2" Height="36">
                 <StatusBar Background="{x:Null}" Foreground="White">
-                    <StatusBarItem x:Name="stItem1" Margin="5,0,0,0"/>
-                    <StatusBarItem x:Name="stItem2" FontSize="11" HorizontalAlignment="Right" BorderThickness="0" Margin="0,0,20,0" Content="Criado por Eduardo Vieira Mendes"/>
+                    <StatusBarItem x:Name="stItem1" Margin="5,0,0,0" />
+                    <StatusBarItem x:Name="stItem2" FontSize="11" HorizontalAlignment="Right" BorderThickness="0"
+                                   Margin="0,0,20,0" Content="Criado por Eduardo Vieira Mendes" />
                 </StatusBar>
             </Grid>
 
             <!-- Grid StatusBar -->
 
         </Grid>
-        <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click"/>
-        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33"/>
+        <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
+        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" />
     </Grid>
 </Window>
