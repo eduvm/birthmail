@@ -52,7 +52,7 @@ namespace Cliente
                 DatabaseHelper historico = new DatabaseHelper("aniversariantes");
 
                 // Define SQL Query
-                string query = "SELECT id, c_nome, c_email, c_tipo, t_mensagem, d_data_envio FROM dados.historico WHERE b_deletado = false LIMIT 50";
+                string query = "SELECT id, c_nome, c_email, c_titulo_mensagem, d_data_envio FROM dados.historico WHERE b_deletado = false LIMIT 50";
 
                 // Executa a query
                 DataTable dt = historico.GetDataTable(query);
@@ -460,10 +460,10 @@ namespace Cliente
 
         }
 
-        private void btnCadTipos_Click(object sender, RoutedEventArgs e)
+        private void btnConfig_Click(object sender, RoutedEventArgs e)
         {
 
-            WinCadTipos tipos = new WinCadTipos();
+            WinConfig tipos = new WinConfig();
 
             tipos.Show();
 
@@ -478,6 +478,34 @@ namespace Cliente
 
         }
 
+        /// <summary>
+        /// Método so passar o mouse sobre o botão de cadastro de aniversariantes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCadAniversariantes_MouseEnter(object sender, MouseEventArgs e) {
+
+            stItem1.Content = "Utilize para cadastrar novos aniversariantes";
+
+        }
+
+        private void btnCadMensagens_MouseEnter(object sender, MouseEventArgs e) {
+
+            stItem1.Content = "Utilize para cadastrar novas mensagens";
+
+        }
+
+        private void btnCadUsuarios_MouseEnter(object sender, MouseEventArgs e) {
+
+            stItem1.Content = "Utilize para cadastrar novos usuários";
+
+        }
+
+        private void ClearStatus1(object sender, MouseEventArgs e) {
+
+            stItem1.Content = "";
+
+        }
     }
 
 }
