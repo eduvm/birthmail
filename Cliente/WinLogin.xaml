@@ -15,8 +15,9 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Rectangle Fill="#FF282829" Height="234" Stroke="#FF242870" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Bottom" RadiusY="25" RadiusX="25"/>
-        <Rectangle Fill="#FFEAEAEA" Height="279" Stroke="#FF3F4391" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Top" RadiusX="25" RadiusY="25"/>
+
+        <Rectangle Fill="#FF282829" Height="234" Stroke="#FF9B94B9" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Bottom" RadiusY="25" RadiusX="25"/>
+        <Rectangle Fill="#FFEAEAEA" Height="279" Stroke="#FF9B94B9" Width="{Binding ActualWidth, ElementName=window, Mode=OneWay}" VerticalAlignment="Top" RadiusX="25" RadiusY="25"/>
         <Grid Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button x:Name="btnLogar" Content="LOGAR" Width="130" Template="{DynamicResource Button01}" Foreground="White" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Click="btnLogar_Click"/>
             <Button x:Name="btnFechar" Content="FECHAR" Margin="200,0,0,0" VerticalAlignment="Top" Width="130" Template="{DynamicResource Button01}" HorizontalAlignment="Right" FontSize="18" Foreground="White" Click="btnFechar_Click" Height="36"/>
