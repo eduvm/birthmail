@@ -49,9 +49,6 @@
     <Reference Include="HtmlRenderer.WPF">
       <HintPath>..\packages\HtmlRenderer.WPF.1.5.0.6\lib\net45\HtmlRenderer.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlToXamlConverter">
-      <HintPath>..\packages\HtmlToXamlConverter.1.0.5702.26891\lib\net45\HtmlToXamlConverter.dll</HintPath>
-    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\packages\Npgsql.3.0.1\lib\net45\Npgsql.dll</HintPath>
     </Reference>
@@ -117,8 +114,8 @@
     <Compile Include="AltUsuario.xaml.cs">
       <DependentUpon>AltUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="EncryptHelper.cs" />
+    <Compile Include="Helpers\DatabaseHelper.cs" />
+    <Compile Include="Helpers\EncryptHelper.cs" />
     <Compile Include="TextBoxConverter.cs" />
     <Compile Include="WinCadAniversariantes.xaml.cs">
       <DependentUpon>WinCadAniversariantes.xaml</DependentUpon>
