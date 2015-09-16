@@ -15,10 +15,15 @@ namespace Cliente {
     ///     Interaction logic for AltUsuario.xaml
     /// </summary>
     public partial class AltUsuario : Window {
+        #region Declaração de variáveis
 
         private string codOpe;
 
         private string idUsuario;
+
+        #endregion
+
+        #region Métodos
 
         private void carregaDados() {
             // Gera novo objeto de Conexao ao banco
@@ -176,6 +181,8 @@ namespace Cliente {
                 MessageBox.Show("Senha não preenchida");
             }
         }
+
+        #endregion
 
         #region Construtores
 
