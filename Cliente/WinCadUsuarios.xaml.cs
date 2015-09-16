@@ -467,11 +467,12 @@ namespace Cliente {
                 MessageBox.Show("Você deve selecionar um usuário para alterar");
             }
 
-            // Defino DataRow para poder pegar item selecionado
-            var rowview = dgridUsuarios.SelectedItem as DataRowView;
+
+            // Pega objeto selecionado
+            Pessoa selecionado = (Pessoa)dgridUsuarios.SelectedItem;
 
             // Defino valor da coluna id
-            var strId = rowview.Row["id"].ToString();
+            var strId = selecionado.Id;
 
             // Defino nova janela passando id e operação
             var alterarUsuario = new AltUsuario(strId, "alterar");
