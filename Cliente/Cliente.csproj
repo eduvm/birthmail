@@ -104,9 +104,6 @@
     <Compile Include="AltMensagem.xaml.cs">
       <DependentUpon>AltMensagem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AltTipo.xaml.cs">
-      <DependentUpon>AltTipo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AltUsuario.xaml.cs">
       <DependentUpon>AltUsuario.xaml</DependentUpon>
     </Compile>
@@ -133,10 +130,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AltMensagem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AltTipo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
