@@ -18,6 +18,7 @@ namespace Cliente {
     ///     Interaction logic for WinPrincipal.xaml
     /// </summary>
     public partial class WinPrincipal : Window {
+        #region Construtores
 
         public WinPrincipal() {
             InitializeComponent();
@@ -28,6 +29,10 @@ namespace Cliente {
             // Carrega mensagens do histórico
             CarregaHistoricoMensagens();
         }
+
+        #endregion
+
+        #region Métodos
 
         private void CarregaHistoricoMensagens() {
             // Tenta
@@ -60,6 +65,10 @@ namespace Cliente {
                 Close();
             }
         }
+
+        #endregion
+
+        #region Botões
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e) {
             DragMove();
@@ -123,6 +132,8 @@ namespace Cliente {
         private void ClearStatus1(object sender, MouseEventArgs e) {
             stItem1.Content = "";
         }
+
+        #endregion
 
         #region Carrega WinAPI
 
@@ -373,8 +384,13 @@ namespace Cliente {
 
                     if (senderRect.Name.ToLower().Contains("right")) {
                         width += 5;
+
+                        // Verifico o tamanho minimo da janela
+
                         if (width > 0) {
-                            mainWindow.Width = width;
+                            if (width > mainWindow.MinWidth) {
+                                mainWindow.Width = width;
+                            }
                         }
                     }
 
@@ -383,14 +399,18 @@ namespace Cliente {
                         mainWindow.Left += width;
                         width = mainWindow.Width - width;
                         if (width > 0) {
-                            mainWindow.Width = width;
+                            if (width > mainWindow.MinWidth) {
+                                mainWindow.Width = width;
+                            }
                         }
                     }
 
                     if (senderRect.Name.ToLower().Contains("bottom")) {
                         height += 5;
                         if (height > 0) {
-                            mainWindow.Height = height;
+                            if (height > mainWindow.MinHeight) {
+                                mainWindow.Height = height;
+                            }
                         }
                     }
 
@@ -400,7 +420,9 @@ namespace Cliente {
                         height = mainWindow.Height - height;
 
                         if (height > 0) {
-                            mainWindow.Height = height;
+                            if (height > mainWindow.MinHeight) {
+                                mainWindow.Height = height;
+                            }
                         }
                     }
                 }
