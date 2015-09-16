@@ -324,8 +324,13 @@ namespace Cliente {
 
                     if (senderRect.Name.ToLower().Contains("right")) {
                         width += 5;
+
+                        // Verifico o tamanho minimo da janela
+
                         if (width > 0) {
-                            mainWindow.Width = width;
+                            if (width > mainWindow.MinWidth) {
+                                mainWindow.Width = width;
+                            }
                         }
                     }
 
@@ -334,14 +339,18 @@ namespace Cliente {
                         mainWindow.Left += width;
                         width = mainWindow.Width - width;
                         if (width > 0) {
-                            mainWindow.Width = width;
+                            if (width > mainWindow.MinWidth) {
+                                mainWindow.Width = width;
+                            }
                         }
                     }
 
                     if (senderRect.Name.ToLower().Contains("bottom")) {
                         height += 5;
                         if (height > 0) {
-                            mainWindow.Height = height;
+                            if (height > mainWindow.MinHeight) {
+                                mainWindow.Height = height;
+                            }
                         }
                     }
 
@@ -351,7 +360,9 @@ namespace Cliente {
                         height = mainWindow.Height - height;
 
                         if (height > 0) {
-                            mainWindow.Height = height;
+                            if (height > mainWindow.MinHeight) {
+                                mainWindow.Height = height;
+                            }
                         }
                     }
                 }
