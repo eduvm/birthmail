@@ -28,7 +28,7 @@ namespace Cliente {
         public WinCadUsuarios() {
             InitializeComponent();
 
-            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
+            stItem3.Content = "v" + Assembly.GetEntryAssembly().GetName().Version;
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;

@@ -25,7 +25,7 @@ namespace Cliente {
         public WinCadAniversariantes() {
             InitializeComponent();
 
-            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
+            stItem3.Content = "v" + Assembly.GetEntryAssembly().GetName().Version;
 
             // Carrega dados
             CarregaDados();

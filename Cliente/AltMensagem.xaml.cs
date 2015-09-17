@@ -35,7 +35,7 @@ namespace Cliente {
             // Inicializa componentes
             InitializeComponent();
 
-            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
+            stItem3.Content = "v" + Assembly.GetEntryAssembly().GetName().Version;
 
             // Define usuario da classe como o usuario recebido
             _codOpe = operacao;

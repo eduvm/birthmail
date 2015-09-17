@@ -24,7 +24,7 @@ namespace Cliente {
         public WinPrincipal() {
             InitializeComponent();
 
-            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
+            stItem3.Content = "v" + Assembly.GetEntryAssembly().GetName().Version;
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;
@@ -89,6 +89,21 @@ namespace Cliente {
             else {
                 WindowState = WindowState.Normal;
             }
+        }
+
+        private void btnMin_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (WindowState == WindowState.Normal)
+            {
+                WindowState = WindowState.Minimized;
+            }
+
+            else
+            {
+                WindowState = WindowState.Normal;
+            }
+
         }
 
         private void btnCadAniversariantes_Click(object sender, RoutedEventArgs e) {
@@ -434,17 +449,6 @@ namespace Cliente {
 
         #endregion ResizeWindows
 
-        private void btnMin_Click(object sender, RoutedEventArgs e) {
-
-            if (WindowState == WindowState.Normal) {
-                WindowState = WindowState.Minimized;
-            }
-
-            else {
-                WindowState = WindowState.Normal;
-            }
-
-        }
     }
 
 }
