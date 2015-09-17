@@ -1,11 +1,9 @@
 ﻿#region Usings
 
-using System;
-using System.Data;
 using System.Windows;
 using System.Windows.Input;
 
-using Cliente.Helpers;
+using Cliente.Properties;
 
 #endregion
 
@@ -25,73 +23,92 @@ namespace Cliente {
 
         #endregion Construtores
 
-        private void CarregaDados() {
-            // Limpa dataGrid
-            dgridTipos.ItemsSource = null;
+        private void btnSalvar_Click(object sender, RoutedEventArgs e) {
 
-            // Tenta
-            try {
-                // Gera novo objeto de conexao ao banco de dados
-                var objDb = new DatabaseHelper("aniversariantes");
+            // Verifica se todos os dados estão ok
+            if (ValidaDados()) {
 
-                // Define SQL Query
-                var query = "SELECT id , c_tipo FROM dados.tipo_aniversariantes WHERE b_deletado = false";
+                // Se estiverem, salva as alterações nas preferencias
+                Settings.Default.Host = tbHost.Text;
+                Settings.Default.Port = tbPort.Text;
+                Settings.Default.User = tbUser.Text;
+                Settings.Default.Password = tbPassword.Text;
+                Settings.Default.Database = tbDatabase.Text;
+                Settings.Default.Save();
 
-                // Executa a query
-                var dt = objDb.GetDataTable(query);
-
-                // Seta itens do datagrid com o retorno da query
-                dgridTipos.ItemsSource = dt.DefaultView;
-            }
-
-                // Trata excessão
-            catch (Exception fail) {
-                // Seta mensagem de erro
-                var error = "O seguinte erro ocorreu:\n\n";
-
-                // Anexa mensagem de erro na mensagem
-                error += fail.Message + "\n\n";
-
-                // Apresenta mensagem na tela
-                MessageBox.Show(error);
-
-                // Fecha o formulário
+                // Fecha janela
                 Close();
-            }
-        }
 
-        private void btnAlterar_Click(object sender, RoutedEventArgs e) {
-            // Verifica se existe usuario selecionado
-            if (dgridTipos.SelectedItem == null) {
-                MessageBox.Show("Você deve selecionar um usuário para alterar");
             }
 
-            // Defino DataRow para poder pegar item selecionado
-            var rowview = dgridTipos.SelectedItem as DataRowView;
-
-            // Defino valor da coluna id
-            var strId = rowview.Row["id"].ToString();
-
-            // Defino nova janela passando id e operação
-            var AlteraTipo = new AltTipo(strId);
-
-            AlteraTipo.ShowDialog();
-
-            // Update DataGrid
-            CarregaDados();
         }
+
+        #region Methods
+
+        private void CarregaDados() {
+            // Whe the window open, i will take the settings from the preferences
+            tbHost.Text = Settings.Default.Host;
+            tbPort.Text = Settings.Default.Port;
+            tbUser.Text = Settings.Default.User;
+            tbPassword.Text = Settings.Default.Password;
+            tbDatabase.Text = Settings.Default.Database;
+        }
+
+        /// <summary>
+        ///     Método que vai verificar se os campos estão em branco
+        /// </summary>
+        /// <returns>Retorna true se não estivere, e false se estivere</returns>
+        private bool ValidaDados() {
+            if (string.IsNullOrEmpty(tbHost.Text)) {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tbPort.Text)) {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tbUser.Text)) {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tbPassword.Text)) {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tbPassword.Text)) {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tbDatabase.Text)) {
+                return false;
+            }
+
+            return true;
+        }
+
+        #endregion
 
         #region Botões
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e) {
             DragMove();
         }
+        
+
+        private void btnFechar1_Click(object sender, RoutedEventArgs e) {
+            // Fecha a janela atual
+            Close();
+        }
+
+        #endregion Botões
 
         private void btnFechar_Click(object sender, RoutedEventArgs e) {
             Close();
         }
 
-        #endregion Botões
+        private void btnMin_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 
 }
