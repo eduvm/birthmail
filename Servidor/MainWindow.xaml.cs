@@ -71,6 +71,15 @@ namespace Servidor {
             }
         }
 
+        private void miConfig_Click(object sender, RoutedEventArgs e) {
+
+
+            WinConfig config = new WinConfig();
+
+            config.Show();
+
+        }
+
         public void VerificaEmail() {
             // Pega data atual
             cDia = DateTime.Now.ToString("dd");
