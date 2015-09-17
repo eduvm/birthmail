@@ -35,7 +35,7 @@ namespace Servidor {
             dispatcherTimer.Tick += dispatcherTimer_Tick;
 
             // Define intervalo dos ticks (10 minutos)
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
+            dispatcherTimer.Interval = new TimeSpan(0, 30, 0);
 
             // Inicia timer
             dispatcherTimer.Start();
