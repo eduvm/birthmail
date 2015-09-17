@@ -68,7 +68,7 @@
         <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
             HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
-            HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" />
+            HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
             Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
             Width="33" Click="btnFechar_Click" />

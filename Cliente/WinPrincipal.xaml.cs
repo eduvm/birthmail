@@ -430,6 +430,18 @@ namespace Cliente {
         }
 
         #endregion ResizeWindows
+
+        private void btnMin_Click(object sender, RoutedEventArgs e) {
+
+            if (WindowState == WindowState.Normal) {
+                WindowState = WindowState.Minimized;
+            }
+
+            else {
+                WindowState = WindowState.Normal;
+            }
+
+        }
     }
 
 }
