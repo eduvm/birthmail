@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 
+using Cliente.Properties;
+
 using Npgsql;
 
 #endregion
@@ -12,6 +14,71 @@ using Npgsql;
 namespace Cliente.Helpers {
 
     internal class DatabaseHelper {
+
+        #region Construtores
+
+        /// <summary>
+        ///     Construtor padão
+        /// </summary>
+        public DatabaseHelper() {
+
+            CarregaParametros();
+
+            dbParameters = string.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, databaseName);
+
+        }
+
+        /// <summary>
+        ///     Overload de construtor onde informo qual database utilizar
+        /// </summary>
+        /// <param name="database">Nome da base de dados a ser utilizada</param>
+        public DatabaseHelper(string database) {
+
+            CarregaParametros();
+
+            // Neste, preciso redefinir a váriavel databaseName pois ela será recebida por parametro
+            databaseName = database;
+
+            dbParameters = string.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, databaseName);
+
+        }
+
+        /// <summary>
+        ///     Construtor especificando parametros avançados
+        /// </summary>
+        /// <param name="connectionOpts">
+        ///     Um dicionário contendo todos os parametros e seus devidos valores
+        /// </param>
+        public DatabaseHelper(Dictionary<string, string> connectionOpts) {
+            // Define variavel que recebera os parametros
+            var str = "";
+
+            // Para cada parametro
+            foreach (var row in connectionOpts) {
+                // Adiciono o parametro (key) e o valor (value)
+                str += string.Format("{0}={1}; ", row.Key, row.Value);
+            }
+
+            // Remove possiveis espaços em branco
+            str = str.Trim().Substring(0, str.Length - 1);
+
+            // Seto string de conexao com os parametros
+            dbParameters = str;
+        }
+
+        #endregion Construtores
+
+        #region Métodos
+
+        private void CarregaParametros() {
+
+            serverName = Settings.Default.Host;
+            port = Settings.Default.Port;
+            userName = Settings.Default.User;
+            password = Settings.Default.Password;
+            databaseName = Settings.Default.Database;
+
+        }
 
         /// <summary>
         ///     Executa uma query no banco
@@ -247,18 +314,20 @@ namespace Cliente.Helpers {
             return dt;
         }
 
+#endregion Métodos
+
         #region Definição de variáveis
 
         // Defino variaveis
-        private static string serverName = "192.168.25.164"; // Host
+        private static string serverName; // Host
 
-        private static string port = "5432"; // porta default
+        private static string port; // porta default
 
-        private static string userName = "postgres"; // nome do administrador
+        private static string userName; // nome do administrador
 
-        private static string password = "edu"; // senha do administrador
+        private static string password; // senha do administrador
 
-        private static string databaseName = "aniversariantes"; // nome do banco de dados
+        private static string databaseName; // nome do banco de dados
 
         private NpgsqlConnection pgsqlConnection;
 
@@ -266,47 +335,6 @@ namespace Cliente.Helpers {
 
         #endregion Definição de variáveis
 
-        #region Construtores
-
-        /// <summary>
-        ///     Construtor padão
-        /// </summary>
-        public DatabaseHelper() {
-            dbParameters = string.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, databaseName);
-        }
-
-        /// <summary>
-        ///     Overload de construtor onde informo qual database utilizar
-        /// </summary>
-        /// <param name="database">Nome da base de dados a ser utilizada</param>
-        public DatabaseHelper(string database) {
-            dbParameters = string.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", serverName, port, userName, password, database);
-        }
-
-        /// <summary>
-        ///     Construtor especificando parametros avançados
-        /// </summary>
-        /// <param name="connectionOpts">
-        ///     Um dicionário contendo todos os parametros e seus devidos valores
-        /// </param>
-        public DatabaseHelper(Dictionary<string, string> connectionOpts) {
-            // Define variavel que recebera os parametros
-            var str = "";
-
-            // Para cada parametro
-            foreach (var row in connectionOpts) {
-                // Adiciono o parametro (key) e o valor (value)
-                str += string.Format("{0}={1}; ", row.Key, row.Value);
-            }
-
-            // Remove possiveis espaços em branco
-            str = str.Trim().Substring(0, str.Length - 1);
-
-            // Seto string de conexao com os parametros
-            dbParameters = str;
-        }
-
-        #endregion Construtores
     }
 
 }
