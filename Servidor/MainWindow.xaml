@@ -7,10 +7,22 @@
         Title="Servidor Email: Aniversariantes" Height="404.683" Width="654.061" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="22" />
             <RowDefinition Height="35" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
+
+        <Grid>
+            <Menu>
+                <MenuItem Header="Arquivo">
+                    <MenuItem x:Name="miConfig" Header="Configurações" Click="miConfig_Click"/>
+                </MenuItem>
+                <MenuItem Header="Ajuda">
+                    <MenuItem x:Name="miSobre" Header="Sobre" />
+                </MenuItem>
+            </Menu>
+        </Grid>
 
         <Grid Grid.Row="0" Background="#FFF0EAEA" Margin="0,0,0,0">
             <TextBlock FontSize="22" Text="Status do Serviço:" HorizontalAlignment="Left" VerticalAlignment="Center"
