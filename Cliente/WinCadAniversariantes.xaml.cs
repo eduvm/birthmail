@@ -2,6 +2,7 @@
 
 using System;
 using System.Data;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -23,6 +24,8 @@ namespace Cliente {
 
         public WinCadAniversariantes() {
             InitializeComponent();
+
+            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
 
             // Carrega dados
             CarregaDados();

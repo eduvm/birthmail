@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -33,6 +34,8 @@ namespace Cliente {
         public AltMensagem(string operacao) {
             // Inicializa componentes
             InitializeComponent();
+
+            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
 
             // Define usuario da classe como o usuario recebido
             _codOpe = operacao;

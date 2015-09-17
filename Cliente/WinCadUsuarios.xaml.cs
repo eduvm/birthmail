@@ -3,6 +3,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,8 @@ namespace Cliente {
 
         public WinCadUsuarios() {
             InitializeComponent();
+
+            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;

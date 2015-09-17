@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -22,6 +23,8 @@ namespace Cliente {
 
         public WinPrincipal() {
             InitializeComponent();
+
+            stItem1.Content = Assembly.GetEntryAssembly().GetName().Version;
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;
