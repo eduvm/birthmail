@@ -101,9 +101,9 @@ namespace Cliente {
         }
 
         private void btnConfig_Click(object sender, RoutedEventArgs e) {
-            var tipos = new WinConfig();
+            var config = new WinConfig();
 
-            tipos.Show();
+            config.Show();
         }
 
         private void btnCadUsuarios_Click(object sender, RoutedEventArgs e) {
