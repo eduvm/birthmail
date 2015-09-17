@@ -25,7 +25,7 @@ namespace Cliente.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.25.164")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.14.1.100")]
         public string Host {
             get {
                 return ((string)(this["Host"]));
@@ -61,7 +61,7 @@ namespace Cliente.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("edu")]
+        [global::System.Configuration.DefaultSettingValueAttribute("postgres")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
