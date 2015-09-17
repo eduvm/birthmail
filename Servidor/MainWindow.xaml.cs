@@ -94,7 +94,7 @@ namespace Servidor {
             var objDB = new DatabaseHelper("aniversariantes");
 
             // Gero query que vai retornar os aniversariantes do dia
-            var query = $"SELECT id, c_nome, c_email, n_mensagem_id, n_dia, n_mes FROM dados.aniversariantes WHERE n_dia = '{cDia}' AND n_mes = '{cMes}' AND b_ativo = true AND b_deletado = false ORDER BY id";
+            var query = String.Format("SELECT id, c_nome, c_email, n_mensagem_id, n_dia, n_mes FROM dados.aniversariantes WHERE n_dia = '{0}' AND n_mes = '{1}' AND b_ativo = true AND b_deletado = false ORDER BY id",cDia,cMes);
 
             // Salvo os aniversariantes em um DataTable
             var AniversariantesDeHoje = objDB.GetDataTable(query);
@@ -108,7 +108,7 @@ namespace Servidor {
                 var objAniversariante = new DatabaseHelper("aniversariantes");
 
                 // Gero Sql para verificar se já foi enviado um email para este usuário nesta data
-                var query2 = $"SELECT * FROM dados.historico WHERE n_aniversarianteid = '{idUsuario}' AND  c_dia = '{cDia}' AND c_mes = '{cMes}' AND c_ano = '{cAno}' AND b_deletado = false";
+                var query2 = String.Format("SELECT * FROM dados.historico WHERE n_aniversarianteid = '{0}' AND  c_dia = '{1}' AND c_mes = '{2}' AND c_ano = '{3}' AND b_deletado = false",idUsuario,cDia,cMes,cAno);
 
                 // Executo o query e salvo na variavel result
                 var result = objAniversariante.ExecuteScalar(query2);
@@ -129,7 +129,7 @@ namespace Servidor {
             var objDb = new DatabaseHelper("aniversariantes");
 
             // Defino novo sql
-            var query = $"SELECT A.id, A.c_nome, A.c_email, B.t_mensagem, B.c_titulo FROM dados.aniversariantes A, dados.mensagem B WHERE A.id = '{id}' AND A.n_mensagem_id = B.id AND A.b_ativo = true AND A.b_deletado = false AND B.b_deletado = false";
+            var query = String.Format("SELECT A.id, A.c_nome, A.c_email, B.t_mensagem, B.c_titulo FROM dados.aniversariantes A, dados.mensagem B WHERE A.id = '{0}' AND A.n_mensagem_id = B.id AND A.b_ativo = true AND A.b_deletado = false AND B.b_deletado = false",id);
 
             // Executo o SQL
             var result = objDb.GetDataTable(query);
