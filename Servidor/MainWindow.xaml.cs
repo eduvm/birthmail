@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -27,6 +28,9 @@ namespace Servidor {
         public MainWindow() {
             // Inicializa componentes
             InitializeComponent();
+
+            // Altera nome da jenala principal adicionado a versão do software
+            this.Title = "Servidor: Email de aniversariantes - v" + Assembly.GetEntryAssembly().GetName().Version;
 
             //  Cria novo dispatcher timer
             var dispatcherTimer = new DispatcherTimer();
