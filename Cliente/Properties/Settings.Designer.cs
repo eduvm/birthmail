@@ -25,7 +25,7 @@ namespace Cliente.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.25.108")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.25.164")]
         public string Host {
             get {
                 return ((string)(this["Host"]));
