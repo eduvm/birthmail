@@ -132,7 +132,7 @@
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnConfig" Grid.Row="3" Margin="5" Click="btnConfig_Click" IsEnabled="False"
+                    <Button x:Name="btnConfig" Grid.Row="3" Margin="5" Click="btnConfig_Click"
                             Width="190" Height="126" Template="{DynamicResource ButtonStyle01}" Foreground="Black">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/tipo.png" Width="64" Height="64" />
