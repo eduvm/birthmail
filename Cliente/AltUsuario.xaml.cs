@@ -252,7 +252,6 @@ namespace Cliente {
             Close();
         }
 
-        #endregion Botões
 
         private void btnMin_Click(object sender, RoutedEventArgs e) {
             if (WindowState == WindowState.Normal) {
@@ -263,6 +262,8 @@ namespace Cliente {
                 WindowState = WindowState.Normal;
             }
         }
+
+        #endregion Botões
     }
 
 }

@@ -27,6 +27,9 @@ namespace Cliente {
 
             // Define usuario da classe como o usuario recebido
             _codOpe = operacao;
+
+            // Seta foco no campo nome
+            TbNome.Focus();
         }
 
         public AltAniversariantes(string id, string operacao) {
@@ -40,6 +43,9 @@ namespace Cliente {
 
             // Carrega dados
             CarregaDados();
+
+            // Seta foco no campo nome
+            TbNome.Focus();
         }
 
         #endregion Construtores
@@ -213,8 +219,6 @@ namespace Cliente {
             }
         }
 
-        #endregion Botões
-
         private void btnMin_Click(object sender, RoutedEventArgs e) {
             if (WindowState == WindowState.Normal) {
                 WindowState = WindowState.Minimized;
@@ -240,6 +244,8 @@ namespace Cliente {
             TbNMensagem.Text = result;
 
         }
+
+        #endregion Botões
     }
 
 }

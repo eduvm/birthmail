@@ -42,6 +42,9 @@ namespace Cliente {
 
             // Define novo evento para tratar da maximizaçao da janela
             SourceInitialized += win_SourceInitialized;
+
+            // Seta foco no campo Titulo
+            TbTitulo.Focus();
         }
 
         // Construtor
@@ -493,8 +496,6 @@ namespace Cliente {
             }
         }
 
-        #endregion Botoões
-
         private void btnMin_Click(object sender, RoutedEventArgs e) {
             if (WindowState == WindowState.Normal) {
                 WindowState = WindowState.Minimized;
@@ -504,6 +505,9 @@ namespace Cliente {
                 WindowState = WindowState.Normal;
             }
         }
+
+        #endregion Botoões
+
     }
 
 }
