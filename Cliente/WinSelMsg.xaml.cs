@@ -104,6 +104,28 @@ namespace Cliente {
         }
 
         #endregion
+
+        private void dgridSelMsg_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            if (dgridSelMsg.SelectedItem == null) {
+
+                return;
+
+            }
+
+            else {
+
+                // Defino DataRow para poder pegar item selecionado
+                var rowview = dgridSelMsg.SelectedItem as DataRowView;
+
+                // Seta id com o objeto selecionado
+                id = rowview.Row["id"].ToString();
+
+                Close();
+            }
+
+        }
     }
 
 }
