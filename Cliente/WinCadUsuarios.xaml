@@ -145,7 +145,7 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,78,0,0" IsReadOnly="True"
                                      Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
-                            <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,107,0,0"
+                            <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,109,0,0"
                                       VerticalAlignment="Top"
                                       IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                       IsEnabled="False" IsTabStop="False" />
@@ -165,6 +165,7 @@
                                     <DataGridTextColumn Binding="{Binding Usuario}" Header="USUARIO" />
                                     <DataGridTextColumn Binding="{Binding Email}" Header="EMAIL" />
                                     <DataGridCheckBoxColumn Binding="{Binding Admin}" Header="ADMINISTRADOR" />
+                                    <DataGridCheckBoxColumn Binding="{Binding Ativo}" Header="ATIVO" />
 
                                 </DataGrid.Columns>
 
@@ -179,6 +180,10 @@
                             <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,7"
                                     VerticalAlignment="Bottom" Width="75" Height="21" Click="btnExcluir_Click"
                                     Template="{DynamicResource ButtonStyle01}" TabIndex="5" />
+                            <CheckBox Content="Ativo" HorizontalAlignment="Left" Margin="164,109,0,0"
+                            	VerticalAlignment="Top"
+                            	IsChecked="{Binding SelectedItem.Ativo, ElementName=dgridUsuarios, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            	IsEnabled="False" IsTabStop="False" />
 
                         </Grid>
 

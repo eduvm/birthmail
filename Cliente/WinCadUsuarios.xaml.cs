@@ -52,7 +52,7 @@ namespace Cliente {
                 var usuario = new DatabaseHelper("aniversariantes");
 
                 // Define SQL Query
-                var query = "SELECT id , c_nome, c_usuario, c_email, b_admin FROM dados.usuarios WHERE b_ativo = true AND b_deletado = false";
+                var query = "SELECT id , c_nome, c_usuario, c_email, b_admin, b_ativo FROM dados.usuarios WHERE b_deletado = false";
 
                 // Executa a query
                 var dt = usuario.GetDataTable(query);
@@ -67,7 +67,8 @@ namespace Cliente {
                         Nome = row["c_nome"].ToString(),
                         Usuario = row["c_usuario"].ToString(),
                         Email = row["c_email"].ToString(),
-                        Admin = (bool) row["b_admin"]
+                        Admin = (bool) row["b_admin"],
+                        Ativo = (bool)row["b_ativo"]
                     });
                 }
 
@@ -229,6 +230,12 @@ namespace Cliente {
             }
 
             public bool Admin {
+                get;
+                set;
+            }
+
+            public bool Ativo
+            {
                 get;
                 set;
             }
