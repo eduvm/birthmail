@@ -49,7 +49,7 @@ namespace Cliente {
                 var objDb = new DatabaseHelper("aniversariantes");
 
                 // Define SQL Query
-                var query = "SELECT id, c_nome, c_email, d_data_completa, n_dia, n_mes, b_ativo, n_mensagem_id FROM dados.aniversariantes WHERE b_deletado <> true";
+                var query = "SELECT id, c_nome, c_email, d_data_completa, n_dia, n_mes, b_ativo, n_mensagem_id FROM dados.aniversariantes WHERE b_deletado <> true ORDER BY id";
 
                 // Executa a query
                 var dt = objDb.GetDataTable(query);
