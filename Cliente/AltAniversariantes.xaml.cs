@@ -224,7 +224,6 @@ namespace Cliente {
                 WindowState = WindowState.Normal;
             }
         }
-    }
 
         private void btnBuscarCodMsg_Click(object sender, RoutedEventArgs e) {
 

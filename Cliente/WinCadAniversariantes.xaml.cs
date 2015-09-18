@@ -462,6 +462,7 @@ namespace Cliente {
                 WindowState = WindowState.Normal;
             }
         }
+
     }
 
 }
