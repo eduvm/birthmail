@@ -52,7 +52,7 @@ namespace Cliente {
                 var usuario = new DatabaseHelper("aniversariantes");
 
                 // Define SQL Query
-                var query = "SELECT id , c_nome, c_usuario, c_email, b_admin, b_ativo FROM dados.usuarios WHERE b_deletado = false";
+                var query = "SELECT id , c_nome, c_usuario, c_email, b_admin, b_ativo FROM dados.usuarios WHERE b_deletado = false ORDER BY id";
 
                 // Executa a query
                 var dt = usuario.GetDataTable(query);
