@@ -92,7 +92,7 @@
                             <TextBlock Text="Cod Mensagem:" Margin="406,87,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbNMensagem" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="497,84,0,0" Width="112" IsTabStop="False" />
+                                     Margin="497,84,0,0" Width="112" IsTabStop="False" IsReadOnly="True" />
 
                             <Button x:Name="btnBuscarCodMsg" HorizontalAlignment="Left" VerticalAlignment="Top"
                                     Content="..." Margin="616,84,0,0" Width="22" Height="22"

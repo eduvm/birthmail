@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -73,6 +74,57 @@ namespace Cliente {
 
                 // Fecha o formulário
                 Close();
+            }
+        }
+
+        private void ExcluirMensagem() {
+
+            //TODO - Verificar se esta vinculada a algum usuário - se estiver não deixe deletar
+
+            // Se não existir mensagem selecionado no grid
+            if (dgrigMensagem.SelectedItem == null)
+            {
+
+                // Apresenta mensagem informando que é necessário selecionar uma mensagem para excluí-la
+                MessageBox.Show("Você deve selecionar uma mensagem para excluir");
+
+            }
+
+                // Se existir mensagem selecionada
+            else {
+
+                // Defino novo objeto RowView com o registro selecionado
+                DataRowView rowview = dgrigMensagem.SelectedItem as DataRowView;
+
+                // Pego valor do campo ID
+                var strId = rowview.Row["id"].ToString();
+
+                // Defino dicionario com chave e valor a ser alterado
+                Dictionary<string, string> campoValor = new Dictionary<string, string>();
+
+                // Adiciono o campo deletado no dicionario
+                campoValor.Add("b_deletado", "true");
+
+                // Crio novo objeto de database
+                var deletar = new DatabaseHelper();
+
+                // Se conseguir setar a mensagem como deletado
+                if (deletar.Update("dados.mensagem", campoValor, "id = " + strId)) {
+
+                    // Apresenta mensagem para o usuário
+                    MessageBox.Show("Mensagem deletadada");
+
+                    // Chama rotina que atualiza a lista de mensagens
+                    CarregaDados();
+
+                }
+
+                    // Se não conseguir deletar
+                else {
+
+                    // Apresenta mensagem para o usuário
+                    MessageBox.Show("Ocorreu erro ao tentar deletar a mensagem");
+                }
             }
         }
 
@@ -409,31 +461,10 @@ namespace Cliente {
         }
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e) {
-            // Verifica se existe usuario selecionado
-            if (dgrigMensagem.SelectedItem == null) {
-                MessageBox.Show("Você deve selecionar uma mensagem para excluir");
-            }
+            
+            // Chama rotina que excluir a mensagem selecionada
+            ExcluirMensagem();
 
-            else {
-                // Defino DataRow para poder pegar item selecionado
-                var rowview = dgrigMensagem.SelectedItem as DataRowView;
-
-                // Defino valor da coluna id
-                var strId = rowview.Row["id"].ToString();
-
-                // Cria novo objeto de database
-                var deletar = new DatabaseHelper();
-
-                if (deletar.Delete("dados.mensagem", "id = " + strId)) {
-                    MessageBox.Show("Mensagem deletadada");
-
-                    CarregaDados();
-                }
-
-                else {
-                    MessageBox.Show("Ocorreu erro ao tentar deletar a mensagem");
-                }
-            }
         }
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e) {
@@ -453,8 +484,6 @@ namespace Cliente {
             }
         }
 
-        #endregion Botões
-
         private void btnMin_Click(object sender, RoutedEventArgs e) {
             if (WindowState == WindowState.Normal) {
                 WindowState = WindowState.Minimized;
@@ -464,6 +493,8 @@ namespace Cliente {
                 WindowState = WindowState.Normal;
             }
         }
+
+        #endregion Botões
     }
 
 }

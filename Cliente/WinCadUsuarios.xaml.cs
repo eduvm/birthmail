@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Reflection;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 
 using Cliente.Helpers;
-
+using Cliente.Properties;
 using WinInterop = System.Windows.Interop;
 
 #endregion
@@ -88,6 +89,64 @@ namespace Cliente {
                 // Fecha o formulário
                 Close();
             }
+        }
+
+        /// <summary>
+        /// Método responsavel pela exclusao dos usuários
+        /// </summary>
+        private void ExcluirUsuario() {
+
+            //TODO - Verificar é o último usuario
+
+            // Se não existir usuário selecionado no grid
+            if (dgridUsuarios.SelectedItem == null) {
+
+                // Apresenta mensagem informando que é necessário selecionar um usuário para excluí-lo
+                MessageBox.Show("Você deve selecionar um usuário para excluir");
+
+            }
+
+                // Se houver usuário selecionado no grid
+            else {
+                
+                
+                // Defino novo objeto Pessoa com o registro selecionado
+                Pessoa selecionado = (Pessoa) dgridUsuarios.SelectedItem;
+
+
+                // Gravo na variável o Id do usuário selecionado
+                var strId = selecionado.Id;
+
+                // Crio novo objeto de acesso ao Banco de Dados
+                var deletar = new DatabaseHelper();
+
+                // Defino dicionario com chave e valor a ser alterado
+                Dictionary<string, string> campoValor = new Dictionary<string, string>();
+
+                // Adiciono o campo deletado no dicionario
+                campoValor.Add("b_deletado","true");
+
+                // Se conseguir setar o usuario como deletado
+                if (deletar.Update("dados.usuarios", campoValor, "id = " + strId)){
+
+                    // Apresenta mensagem para o usuário
+                    MessageBox.Show("Usuario deletado");
+
+                    // Chama rotina que atualiza a lista de usuários
+                    CarregaDados();
+
+                }
+
+                    // Se não cosneguiu deletar
+                else
+                {
+
+                    // Apresenta mensagem ao usuário
+                    MessageBox.Show("Ocorreu erro ao tentar deletar o usuário");
+                }
+            }
+
+
         }
 
         #endregion
@@ -476,6 +535,7 @@ namespace Cliente {
         }
 
         private void btnAlterar_Click(object sender, RoutedEventArgs e) {
+            
             // Verifica se existe usuario selecionado
             if (dgridUsuarios.SelectedItem == null) {
                 MessageBox.Show("Você deve selecionar um usuário para alterar");
@@ -501,32 +561,10 @@ namespace Cliente {
         }
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e) {
-            // Verifica se existe usuario selecionado
-            if (dgridUsuarios.SelectedItem == null) {
-                MessageBox.Show("Você deve selecionar um usuário para deletar");
-            }
-            else {
-                // Defino DataRow para poder pegar item selecionado
-                var rowview = dgridUsuarios.SelectedItem as DataRowView;
+            
+            // Chamo método que vai excluir o usuário selecionado
+            ExcluirUsuario();
 
-                // Defino valor da coluna id
-                var strId = rowview.Row["id"].ToString();
-
-                //TODO - Verificar é o último usuario
-
-                // Cria novo objeto de database
-                var deletar = new DatabaseHelper();
-
-                if (deletar.Delete("dados.usuarios", "id = " + strId)) {
-                    MessageBox.Show("Usuario deletado");
-
-                    CarregaDados();
-                }
-
-                else {
-                    MessageBox.Show("Ocorreu erro ao tentar deletar o usuário");
-                }
-            }
         }
 
         #endregion Botões

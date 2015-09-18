@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -71,6 +72,55 @@ namespace Cliente {
                 // Fecha o formulário
                 Close();
             }
+        }
+
+        private void ExcluirAniversariante() {
+
+            // Se não existir aniversariante selecionado no grid
+            if (dgridAniversariantes.SelectedItem == null) {
+
+                // Apresenta mensagem ao usuário
+                MessageBox.Show("Você deve selecionar um aniversariante para excluir");
+
+            }
+
+                // Se existir aniversariante selecionado
+            else {
+
+                // Crio novo objeto DataRowView com o registro selecionado
+                DataRowView rowview = dgridAniversariantes.SelectedItem as DataRowView;
+
+                // Defino valor da coluna id
+                var strId = rowview.Row["id"].ToString();
+
+                // Defino dicionario com chave e valor a ser alterado
+                Dictionary<string, string> campoValor = new Dictionary<string, string>();
+
+                // Adiciono o campo deletado no dicionario
+                campoValor.Add("b_deletado", "true");
+
+                // Crio novo objeto de acesso ao Banco de Dados
+                var deletar = new DatabaseHelper();
+
+                // Se conseguir setar o usuario como deletado
+                if (deletar.Update("dados.aniversariantes", campoValor, "id = " + strId)){
+
+                    // Apresenta mensagem para o usuário
+                    MessageBox.Show("Aniversariante deletado");
+
+                    // Chama rotina que atualiza a lista de usuários
+                    CarregaDados();
+                }
+
+                    // Se não cosneguiu deletar
+                else {
+
+                    // Apresenta mensagem ao usuário
+                    MessageBox.Show("Ocorreu erro ao tentar deletar o aniversariante");
+
+                }
+            }
+
         }
 
         #endregion
@@ -424,34 +474,10 @@ namespace Cliente {
         }
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e) {
-            // Verifica se existe usuario selecionado
-            if (dgridAniversariantes.SelectedItem == null) {
-                MessageBox.Show("Você deve selecionar um aniversariante para excluir");
-            }
-
-            else {
-                // Defino DataRow para poder pegar item selecionado
-                var rowview = dgridAniversariantes.SelectedItem as DataRowView;
-
-                // Defino valor da coluna id
-                var strId = rowview.Row["id"].ToString();
-
-                // Cria novo objeto de database
-                var deletar = new DatabaseHelper();
-
-                if (deletar.Delete("dados.aniversariantes", "id = " + strId)) {
-                    MessageBox.Show("Aniversariante deletadado");
-
-                    CarregaDados();
-                }
-
-                else {
-                    MessageBox.Show("Ocorreu erro ao tentar deletar o aniversariante");
-                }
-            }
+            
+            // Chama método que exclui o aniversariante selecionado
+            ExcluirAniversariante();
         }
-
-        #endregion Botões
 
         private void btnMin_Click(object sender, RoutedEventArgs e) {
             if (WindowState == WindowState.Normal) {
@@ -462,6 +488,8 @@ namespace Cliente {
                 WindowState = WindowState.Normal;
             }
         }
+
+        #endregion Botões
 
     }
 
