@@ -481,20 +481,23 @@ namespace Cliente {
                 MessageBox.Show("Você deve selecionar um usuário para alterar");
             }
 
+            else { 
 
-            // Pega objeto selecionado
-            Pessoa selecionado = (Pessoa)dgridUsuarios.SelectedItem;
+                // Pega objeto selecionado
+                Pessoa selecionado = (Pessoa)dgridUsuarios.SelectedItem;
 
-            // Defino valor da coluna id
-            var strId = selecionado.Id;
+                // Defino valor da coluna id
+                var strId = selecionado.Id;
 
-            // Defino nova janela passando id e operação
-            var alterarUsuario = new AltUsuario(strId, "alterar");
+                // Defino nova janela passando id e operação
+                var alterarUsuario = new AltUsuario(strId, "alterar");
 
-            alterarUsuario.ShowDialog();
+                alterarUsuario.ShowDialog();
 
-            // Update DataGrid
-            CarregaDados();
+                // Update DataGrid
+                CarregaDados();
+
+            }
         }
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e) {
@@ -508,6 +511,8 @@ namespace Cliente {
 
                 // Defino valor da coluna id
                 var strId = rowview.Row["id"].ToString();
+
+                //TODO - Verificar é o último usuario
 
                 // Cria novo objeto de database
                 var deletar = new DatabaseHelper();
