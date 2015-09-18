@@ -114,6 +114,11 @@
                                       VerticalAlignment="Top" IsHitTestVisible="false"
                                       IsChecked="{Binding ElementName=dgridAniversariantes, Path=SelectedItem.b_ativo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
+                            <TextBlock Text="Cod Mensagem:" Margin="0,86,151,0" Width="auto" Height="auto"
+                                       HorizontalAlignment="Right" VerticalAlignment="Top" />
+                            <TextBox x:Name="TbNMensagem" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                     Margin="0,84,10,0" Width="136" IsReadOnly="True" Text="{Binding SelectedItem.n_mensagem_id, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
                             <Grid Margin="0,109,0,37">
 
                                 <DataGrid x:Name="dgridAniversariantes" BorderThickness="1" Margin="0,3,0,0"
