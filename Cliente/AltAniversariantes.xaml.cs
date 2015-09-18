@@ -226,4 +226,21 @@ namespace Cliente {
         }
     }
 
+        private void btnBuscarCodMsg_Click(object sender, RoutedEventArgs e) {
+
+            // Gero nova janela de pesquisa de imagens
+            WinSelMsg wselMsg = new WinSelMsg();
+
+            // Mostra janela Dialog
+            wselMsg.ShowDialog();
+
+            // Salva resultado da seleção de mensagem em variável
+            var result = wselMsg.id;
+
+            // Seta campo de numeração da mensagem com o resultado da seleção
+            TbNMensagem.Text = result;
+
+        }
+    }
+
 }

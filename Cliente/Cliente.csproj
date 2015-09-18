@@ -146,6 +146,9 @@
     <Compile Include="WinPrincipal.xaml.cs">
       <DependentUpon>WinPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinSelMsg.xaml.cs">
+      <DependentUpon>WinSelMsg.xaml</DependentUpon>
+    </Compile>
     <Page Include="AltAniversariantes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
