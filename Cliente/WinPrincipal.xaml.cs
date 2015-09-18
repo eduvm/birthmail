@@ -44,7 +44,7 @@ namespace Cliente {
                 var historico = new DatabaseHelper("aniversariantes");
 
                 // Define SQL Query
-                var query = "SELECT id, c_nome, c_email, c_titulo_mensagem, d_data_envio FROM dados.historico WHERE b_deletado = false LIMIT 50 ORDER BY id";
+                var query = "SELECT id, c_nome, c_email, c_titulo_mensagem, d_data_envio FROM dados.historico WHERE b_deletado = false ORDER BY id LIMIT 50";
 
                 // Executa a query
                 var dt = historico.GetDataTable(query);
