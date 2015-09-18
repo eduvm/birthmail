@@ -64,7 +64,7 @@
 
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
                 Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="33" Click="btnFechar_Click" />
+                Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
         <Grid>
             <Grid.RowDefinitions>
@@ -93,25 +93,25 @@
                             <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbCod" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,0,0,0" Width="64" IsReadOnly="True" />
+                                     Margin="44,0,0,0" Width="64" IsReadOnly="True" IsTabStop="False" />
 
                             <TextBlock Text="Título:" Margin="0,27,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox x:Name="TbTitulo" VerticalAlignment="Top" Margin="44,24,10,0" />
+                            <TextBox x:Name="TbTitulo" VerticalAlignment="Top" Margin="44,24,10,0" TabIndex="1" />
 
                             <TextBlock Text="Mensagem:" Margin="0,52,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <HtmlEditor:HtmlEditor x:Name="BrowserMsg" Margin="5,70,5,40" BorderBrush="Black"
-                                                   BorderThickness="1" />
+                                                   BorderThickness="1" TabIndex="2" />
 
                             <Grid Height="30" VerticalAlignment="Bottom">
 
                                 <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center"
                                         Content="SALVAR" Margin="200,0,0,0" Width="60" Click="btnSalvar_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="3" />
                                 <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center"
                                         Content="FECHAR" Margin="0,0,200,0" Width="60" Click="btnFechar1_Click"
-                                        Height="20" Template="{DynamicResource ButtonStyle01}" />
+                                        Height="20" Template="{DynamicResource ButtonStyle01}" TabIndex="4" />
 
                             </Grid>
 
@@ -139,8 +139,8 @@
 
         </Grid>
         <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" IsTabStop="False" />
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
     </Grid>
 </Window>

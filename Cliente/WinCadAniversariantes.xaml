@@ -68,12 +68,12 @@
                    Style="{StaticResource RectBorderStyle}" />
 
         <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" IsTabStop="False" />
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
                 Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="33" Click="btnFechar_Click" />
+                Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
         <Grid>
             <Grid.RowDefinitions>
@@ -104,25 +104,25 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,0,0,0" Width="96"
                                      IsReadOnly="True"
-                                     Text="{Binding SelectedItem.id, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding SelectedItem.id, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
 
                             <TextBlock Text="Nome:" Margin="0,30,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,27,10,0" IsReadOnly="True"
-                                     Text="{Binding SelectedItem.c_nome, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding SelectedItem.c_nome, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <CheckBox x:Name="cbAtivo" Content="Ativo" HorizontalAlignment="Left" Margin="219,86,0,0"
                                       VerticalAlignment="Top" IsHitTestVisible="false"
-                                      IsChecked="{Binding ElementName=dgridAniversariantes, Path=SelectedItem.b_ativo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                      IsChecked="{Binding ElementName=dgridAniversariantes, Path=SelectedItem.b_ativo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
 
                             <TextBlock Text="Cod Mensagem:" Margin="0,86,151,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Right" VerticalAlignment="Top" />
                             <TextBox x:Name="TbNMensagem" HorizontalAlignment="Right" VerticalAlignment="Top"
-                                     Margin="0,84,10,0" Width="136" IsReadOnly="True" Text="{Binding SelectedItem.n_mensagem_id, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Margin="0,84,10,0" Width="136" IsReadOnly="True" Text="{Binding SelectedItem.n_mensagem_id, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
 
                             <Grid Margin="0,109,0,37">
 
                                 <DataGrid x:Name="dgridAniversariantes" BorderThickness="1" Margin="0,3,0,0"
-                                          IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                                          IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1" TabIndex="1">
 
                                     <DataGrid.Columns>
 
@@ -147,17 +147,17 @@
 
                             <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right"
                                     Margin="0,0,168,0" VerticalAlignment="Bottom" Width="75" Height="22"
-                                    Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}" />
+                                    Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}" TabIndex="2" />
                             <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,0"
                                     VerticalAlignment="Bottom" Width="75" Height="22" Click="btnAlterar_Click"
-                                    Template="{DynamicResource ButtonStyle01}" />
+                                    Template="{DynamicResource ButtonStyle01}" TabIndex="3" />
                             <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,0"
                                     VerticalAlignment="Bottom" Width="75" Height="22" Click="btnExcluir_Click"
-                                    Template="{DynamicResource ButtonStyle01}" />
+                                    Template="{DynamicResource ButtonStyle01}" TabIndex="4" />
                             <TextBlock Text="Email:" Margin="0,58,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,55,238,0" IsReadOnly="True"
-                                     Text="{Binding SelectedItem.c_email, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding SelectedItem.c_email, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <TextBlock Text="Nascimento:" Margin="0,58,148,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Right" VerticalAlignment="Top" />
                             <DatePicker VerticalAlignment="Top" Margin="608,55,10,0"
@@ -166,11 +166,11 @@
                             <TextBlock Text="Mes:" Margin="0,85,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,82,0,0" IsReadOnly="True"
-                                     Text="{Binding SelectedItem.n_mes, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="40" />
+                                     Text="{Binding SelectedItem.n_mes, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="40" IsTabStop="False" />
                             <TextBlock Text="Dia:" Margin="109,85,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="143,82,0,0" IsReadOnly="True"
-                                     Text="{Binding SelectedItem.n_dia, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="40" HorizontalAlignment="Left" />
+                                     Text="{Binding SelectedItem.n_dia, ElementName=dgridAniversariantes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="40" HorizontalAlignment="Left" IsTabStop="False" />
                         </Grid>
 
                     </GroupBox>

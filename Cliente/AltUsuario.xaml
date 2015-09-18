@@ -17,10 +17,10 @@
     <Grid>
 
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,44,0" Template="{DynamicResource ButtonMin}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
                 Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="33" Click="btnFechar_Click" />
+                Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
         <Grid>
 
@@ -52,39 +52,39 @@
                             <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbCodigo" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,0,0,0" Width="64" Text="Auto" IsReadOnly="True" />
+                                     Margin="44,0,0,0" Width="64" Text="Auto" IsReadOnly="True" IsTabStop="False" />
 
                             <TextBlock Text="Nome:" Margin="0,27,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbAltNome" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,24,0,0" Width="594" />
+                                     Margin="44,24,0,0" Width="594" TabIndex="1" />
 
                             <TextBlock Text="Email:" Margin="0,53,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbAltEmail" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,50,0,0" Width="594" />
+                                     Margin="44,50,0,0" Width="594" TabIndex="2" />
 
                             <TextBlock Text="Usuário:" Margin="0,81,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbAltUsuario" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,78,0,0" Width="123" />
+                                     Margin="44,78,0,0" Width="123" TabIndex="3" />
 
                             <CheckBox x:Name="cbAdmin" Content="Administrador" HorizontalAlignment="Left"
-                                      Margin="0,108,0,0" VerticalAlignment="Top" />
+                                      Margin="0,108,0,0" VerticalAlignment="Top" TabIndex="5" />
                             <TextBlock Text="Senha:" Margin="181,81,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbAltSenha" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="225,78,0,0" Width="123" />
+                                     Margin="225,78,0,0" Width="123" TabIndex="4" />
                             <CheckBox x:Name="cbAtivo" Content="Ativo" HorizontalAlignment="Left" Margin="181,108,0,0"
-                                      VerticalAlignment="Top" />
+                                      VerticalAlignment="Top" TabIndex="6" />
                             <Grid Height="30" VerticalAlignment="Bottom">
 
                                 <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center"
                                         Content="SALVAR" Margin="200,6,0,4" Width="65" Click="btnSalvar_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="7" />
                                 <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center"
                                         Content="FECHAR" Margin="0,0,200,0" Width="65" Click="btnFechar1_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="8" />
 
                             </Grid>
 

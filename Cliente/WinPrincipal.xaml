@@ -63,7 +63,7 @@
 
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
                 Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="33" Click="btnFechar_Click" />
+                Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
 
         <Grid>
@@ -98,7 +98,7 @@
 
                     <Button x:Name="btnCadAniversariantes" Grid.Row="0" Margin="5" Click="btnCadAniversariantes_Click"
                             MouseEnter="btnCadAniversariantes_MouseEnter" MouseLeave="ClearStatus1"
-                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
+                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black" TabIndex="1">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/presente.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
@@ -110,7 +110,7 @@
 
                     <Button x:Name="btnCadMensagens" Grid.Row="1" Margin="5" Click="btnCadMensagens_Click"
                             MouseEnter="btnCadMensagens_MouseEnter" MouseLeave="ClearStatus1"
-                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
+                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black" TabIndex="2">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/mensagem.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
@@ -122,7 +122,7 @@
 
                     <Button x:Name="btnCadUsuarios" Grid.Row="2" Margin="5" Click="btnCadUsuarios_Click"
                             MouseEnter="btnCadUsuarios_MouseEnter" MouseLeave="ClearStatus1"
-                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black">
+                            Template="{DynamicResource ButtonStyle01}" Width="190" Height="126" Foreground="Black" TabIndex="3">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/usuario.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
@@ -133,7 +133,7 @@
                     </Button>
 
                     <Button x:Name="btnConfig" Grid.Row="3" Margin="5" Click="btnConfig_Click"
-                            Width="190" Height="126" Template="{DynamicResource ButtonStyle01}" Foreground="Black">
+                            Width="190" Height="126" Template="{DynamicResource ButtonStyle01}" Foreground="Black" TabIndex="4">
                         <StackPanel Margin="0,5">
                             <Image Source="Imagens/tipo.png" Width="64" Height="64" />
                             <TextBlock Height="39" Width="110" TextWrapping="WrapWithOverflow" TextAlignment="Center"
@@ -151,24 +151,24 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,0,0,0" Width="346"
                                      IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <TextBlock Text="Email:" Margin="0,27,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,24,0,0" Width="259"
                                      IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_email, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridHistorico, Path=SelectedItem.c_email, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <TextBlock Text="Data de Envio:" Margin="396,3,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,0,0,0" Width="85"
                                      IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridHistorico, StringFormat=\{0:dd/MM/yyyy\}, Path=SelectedItem.d_data_envio, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridHistorico, StringFormat=\{0:dd/MM/yyyy\}, Path=SelectedItem.d_data_envio, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <TextBlock Text="Mensagem:" Margin="310,27,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,24,0,0" Width="182"
                                      IsReadOnly="True"
-                                     Text="{Binding SelectedItem.c_titulo_mensagem, ElementName=dgridHistorico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding SelectedItem.c_titulo_mensagem, ElementName=dgridHistorico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <DataGrid x:Name="dgridHistorico" BorderThickness="1" Margin="0,51,0,0" IsReadOnly="True"
-                                      AutoGenerateColumns="False" BorderBrush="Black">
+                                      AutoGenerateColumns="False" BorderBrush="Black" TabIndex="5">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}"
                                                         Header="ID" />
@@ -208,8 +208,8 @@
 
         </Grid>
         <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" IsTabStop="False" />
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
     </Grid>
 </Window>

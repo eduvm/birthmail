@@ -16,8 +16,8 @@
 
     <Grid>
 
-        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,44,0" Template="{DynamicResource ButtonMin}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
-        <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0" Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnFechar_Click" />
+        <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,44,0" Template="{DynamicResource ButtonMin}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
+        <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0" Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
         <Grid>
 
@@ -46,33 +46,33 @@
                             <TextBlock Text="Host:" Margin="0,13,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbHost" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="49,10,0,0" Width="401" />
+                                     Margin="49,10,0,0" Width="401" TabIndex="1" />
 
                             <TextBlock Text="Porta:" Margin="475,13,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbPort" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="511,10,0,0" Width="123" />
+                                     Margin="511,10,0,0" Width="123" TabIndex="2" />
 
                             <TextBlock Text="Usuário:" Margin="0,40,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbUser" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="49,37,0,0" Width="123" />
+                                     Margin="49,37,0,0" Width="123" TabIndex="3" />
                             <TextBlock Text="Senha:" Margin="186,40,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="tbPassword" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="230,37,0,0" Width="123" />
+                                     Margin="230,37,0,0" Width="123" TabIndex="4" />
                             <Grid Height="30" VerticalAlignment="Bottom">
 
                                 <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center"
                                         Content="SALVAR" Margin="200,6,0,4" Width="65" Click="btnSalvar_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="6" />
                                 <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center"
                                         Content="FECHAR" Margin="0,0,200,0" Width="65" Click="btnFechar1_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="7" />
 
                             </Grid>
                             <TextBlock Text="Database:" Margin="365,40,0,0" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <TextBox x:Name="tbDatabase" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,37,0,0" Width="212" />
+                            <TextBox x:Name="tbDatabase" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,37,0,0" Width="212" TabIndex="5" />
 
                         </Grid>
 

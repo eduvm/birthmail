@@ -15,17 +15,17 @@
             <Style TargetType="{x:Type DatePickerTextBox}">
                 <Setter Property="Text" Value="Escolha uma data " />
             </Style>
-            
+
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid>
 
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,44,0" Template="{DynamicResource ButtonMin}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
                 Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="33" Click="btnFechar_Click" />
+                Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
         <Grid>
 
@@ -58,54 +58,54 @@
                             <TextBlock Text="Código:" Margin="0,3,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbCod" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,0,0,0" Width="64" Text="Auto" IsReadOnly="True" />
+                                     Margin="44,0,0,0" Width="64" Text="Auto" IsReadOnly="True" IsTabStop="False" />
 
                             <TextBlock Text="Nome:" Margin="0,30,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbNome" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,27,0,0" Width="594" />
+                                     Margin="44,27,0,0" Width="594" TabIndex="1" />
 
                             <TextBlock Text="Email:" Margin="0,58,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbEmail" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="44,55,0,0" Width="377" />
+                                     Margin="44,55,0,0" Width="377" TabIndex="2" />
 
                             <TextBlock Text="Dia:" Margin="0,87,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbDia" HorizontalAlignment="Left" VerticalAlignment="Top"
                                      Margin="44,84,0,0" Width="64" IsReadOnly="True"
-                                     Text="{Binding SelectedDate, ElementName=DtDateNas,StringFormat='{}{0:dd}'}" />
+                                     Text="{Binding SelectedDate, ElementName=DtDateNas,StringFormat='{}{0:dd}'}" IsTabStop="False" />
 
                             <TextBlock Text="Mês:" Margin="120,87,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbMes" HorizontalAlignment="Left" VerticalAlignment="Top"
                                      Margin="145,84,0,0" Width="64" IsReadOnly="True"
-                                     Text="{Binding SelectedDate, ElementName=DtDateNas,StringFormat='{}{0:MM}'}" />
+                                     Text="{Binding SelectedDate, ElementName=DtDateNas,StringFormat='{}{0:MM}'}" IsTabStop="False" />
 
                             <CheckBox x:Name="CbAtivo" Content="Ativo" HorizontalAlignment="Left" Margin="223,87,0,0"
-                                      VerticalAlignment="Top" />
+                                      VerticalAlignment="Top" TabIndex="4" />
 
                             <TextBlock Text="Nascimento:" Margin="426,58,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <DatePicker x:Name="DtDateNas" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                        Margin="497,55,0,0" Width="141" Height="24" />
+                                        Margin="497,55,0,0" Width="141" Height="24" TabIndex="3" />
                             <TextBlock Text="Cod Mensagem:" Margin="406,87,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox x:Name="TbNMensagem" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                     Margin="497,84,0,0" Width="112" />
+                                     Margin="497,84,0,0" Width="112" IsTabStop="False" />
 
                             <Button x:Name="btnBuscarCodMsg" HorizontalAlignment="Left" VerticalAlignment="Top"
                                     Content="..." Margin="616,84,0,0" Width="22" Height="22"
-                                    Template="{DynamicResource ButtonStyle01}" Click="btnBuscarCodMsg_Click" />
+                                    Template="{DynamicResource ButtonStyle01}" Click="btnBuscarCodMsg_Click" TabIndex="5" />
 
                             <Grid Height="30" VerticalAlignment="Bottom">
 
                                 <Button x:Name="btnSalvar" HorizontalAlignment="Left" VerticalAlignment="Center"
                                         Content="SALVAR" Margin="200,0,0,0" Width="60" Click="btnSalvar_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="6" />
                                 <Button x:Name="btnFechar1" HorizontalAlignment="Right" VerticalAlignment="Center"
                                         Content="FECHAR" Margin="0,0,200,0" Width="60" Click="btnFechar1_Click"
-                                        Template="{DynamicResource ButtonStyle01}" Height="20" />
+                                        Template="{DynamicResource ButtonStyle01}" Height="20" TabIndex="7" />
 
                             </Grid>
 

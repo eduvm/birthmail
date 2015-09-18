@@ -63,7 +63,7 @@
 
         <Button x:Name="btnFechar" Height="23" Panel.ZIndex="11" Margin="0,4,5,0"
                 Template="{DynamicResource ButtonFechar}" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="33" Click="btnFechar_Click" />
+                Width="33" Click="btnFechar_Click" IsTabStop="False" />
 
         <Grid>
             <Grid.RowDefinitions>
@@ -129,34 +129,34 @@
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,0,0,0" Width="64"
                                      IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Id, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
 
                             <TextBlock Text="Nome:" Margin="0,29,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,26,0,0" IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Nome, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
 
                             <TextBlock Text="Email:" Margin="0,55,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,52,0,0" IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
 
                             <TextBlock Text="Usuário:" Margin="0,81,0,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Left" VerticalAlignment="Top" />
                             <TextBox VerticalAlignment="Top" Margin="44,78,0,0" IsReadOnly="True"
-                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                     Text="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" />
                             <CheckBox Content="Administrador" HorizontalAlignment="Left" Margin="0,107,0,0"
                                       VerticalAlignment="Top"
                                       IsChecked="{Binding ElementName=dgridUsuarios, Path=SelectedItem.Admin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      IsEnabled="False" />
+                                      IsEnabled="False" IsTabStop="False" />
                             <TextBlock Text="Pesquisar:" Margin="300,120,170,0" Width="auto" Height="auto"
                                        HorizontalAlignment="Right" VerticalAlignment="Top" />
                             <TextBox x:Name="tbPesquisar" HorizontalAlignment="Right" VerticalAlignment="Top"
                                      Margin="0,117,0,0" Width="163" IsReadOnly="False"
-                                     TextChanged="tbPesquisar_TextChanged" />
+                                     TextChanged="tbPesquisar_TextChanged" TabIndex="1" />
 
                             <DataGrid x:Name="dgridUsuarios" BorderThickness="1" Margin="0,144,0,37" IsReadOnly="True"
-                                      AutoGenerateColumns="False" BorderBrush="Black">
+                                      AutoGenerateColumns="False" BorderBrush="Black" TabIndex="2">
 
                                 <DataGrid.Columns>
 
@@ -172,13 +172,13 @@
 
                             <Button x:Name="btnIncluir" Content="Incluir" HorizontalAlignment="Right"
                                     Margin="0,0,168,7" VerticalAlignment="Bottom" Width="75" Height="21"
-                                    Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}" />
+                                    Click="btnIncluir_Click" Template="{DynamicResource ButtonStyle01}" TabIndex="3" />
                             <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Margin="0,0,88,7"
                                     VerticalAlignment="Bottom" Width="75" Height="21" Click="btnAlterar_Click"
-                                    Template="{DynamicResource ButtonStyle01}" />
+                                    Template="{DynamicResource ButtonStyle01}" TabIndex="4" />
                             <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,8,7"
                                     VerticalAlignment="Bottom" Width="75" Height="21" Click="btnExcluir_Click"
-                                    Template="{DynamicResource ButtonStyle01}" />
+                                    Template="{DynamicResource ButtonStyle01}" TabIndex="5" />
 
                         </Grid>
 
@@ -204,8 +204,8 @@
 
         </Grid>
         <Button x:Name="btnMax" Height="23" Panel.ZIndex="11" Margin="0,4,43,0" Template="{DynamicResource ButtonMax}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMax_Click" IsTabStop="False" />
         <Button x:Name="btnMin" Height="23" Panel.ZIndex="11" Margin="0,4,81,0" Template="{DynamicResource ButtonMin}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" />
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Click="btnMin_Click" IsTabStop="False" />
     </Grid>
 </Window>
