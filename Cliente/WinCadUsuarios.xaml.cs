@@ -91,12 +91,37 @@ namespace Cliente {
             }
         }
 
+        private bool UltimoUsuario(string id) {
+
+            // Crio novo objeto para verificar se este é o último usuario ativo
+            DatabaseHelper objDB = new DatabaseHelper();
+
+            // Defino SQL Query
+            var SQL = String.Format("SELECT id FROM dados.usuarios WHERE id <> '{0}' AND b_deletado = false AND b_ativo = true", id);
+
+            // Executo comando e verifico se o resultado é vazio
+            // Se for vazio, retorno true, ou seja é o ultimo usuario
+            if (string.IsNullOrEmpty(objDB.ExecuteScalar(SQL))) {
+
+                // Retorno verdadeiro, ou seja, é o último usuário
+                return true;
+
+            }
+
+            // Se não for vazio
+            else {
+
+                // Retorno falso, ou seja, não é o último usuário
+                return false;
+
+            }
+
+        }
+
         /// <summary>
         /// Método responsavel pela exclusao dos usuários
         /// </summary>
         private void ExcluirUsuario() {
-
-            //TODO - Verificar é o último usuario
 
             // Se não existir usuário selecionado no grid
             if (dgridUsuarios.SelectedItem == null) {
@@ -106,46 +131,54 @@ namespace Cliente {
 
             }
 
-                // Se houver usuário selecionado no grid
+            // Se houver usuário selecionado no grid
             else {
-                
-                
+
                 // Defino novo objeto Pessoa com o registro selecionado
                 Pessoa selecionado = (Pessoa) dgridUsuarios.SelectedItem;
-
 
                 // Gravo na variável o Id do usuário selecionado
                 var strId = selecionado.Id;
 
-                // Crio novo objeto de acesso ao Banco de Dados
-                var deletar = new DatabaseHelper();
+                // Chamo método que faz verificação de usuário
+                // Se retonar true, não deixo deletar porque é necessário pelo menos um usuário ativo no sistema
+                if (UltimoUsuario(strId)) {
 
-                // Defino dicionario com chave e valor a ser alterado
-                Dictionary<string, string> campoValor = new Dictionary<string, string>();
-
-                // Adiciono o campo deletado no dicionario
-                campoValor.Add("b_deletado","true");
-
-                // Se conseguir setar o usuario como deletado
-                if (deletar.Update("dados.usuarios", campoValor, "id = " + strId)){
-
-                    // Apresenta mensagem para o usuário
-                    MessageBox.Show("Usuario deletado");
-
-                    // Chama rotina que atualiza a lista de usuários
-                    CarregaDados();
+                    // Apresenta mensagem
+                    MessageBox.Show("Não é possível deletar este usuário.\nÉ necessário pelo menos um usuário ativo e este e´o último");
 
                 }
+                else {
+
+                    // Crio novo objeto de acesso ao Banco de Dados
+                    var deletar = new DatabaseHelper();
+
+                    // Defino dicionario com chave e valor a ser alterado
+                    Dictionary<string, string> campoValor = new Dictionary<string, string>();
+
+                    // Adiciono o campo deletado no dicionario
+                    campoValor.Add("b_deletado", "true");
+
+                    // Se conseguir setar o usuario como deletado
+                    if (deletar.Update("dados.usuarios", campoValor, "id = " + strId)) {
+
+                        // Apresenta mensagem para o usuário
+                        MessageBox.Show("Usuario deletado");
+
+                        // Chama rotina que atualiza a lista de usuários
+                        CarregaDados();
+
+                    }
 
                     // Se não cosneguiu deletar
-                else
-                {
+                    else {
 
-                    // Apresenta mensagem ao usuário
-                    MessageBox.Show("Ocorreu erro ao tentar deletar o usuário");
+                        // Apresenta mensagem ao usuário
+                        MessageBox.Show("Ocorreu erro ao tentar deletar o usuário");
+                    }
+
                 }
             }
-
 
         }
 
