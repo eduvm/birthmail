@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 
 using Cliente.Helpers;
-
+using Cliente.Properties;
 using WinInterop = System.Windows.Interop;
 
 #endregion
@@ -77,20 +77,39 @@ namespace Cliente {
             }
         }
 
+        private bool Ligacao(string id) {
+
+            // Crio novo objeto de acess ao banco de dados
+            var objDB = new DatabaseHelper();
+
+            // Defino o SQL Qeury a ser executado
+            var SQL = String.Format("SELECT A.id FROM dados.mensagem A, dados.aniversariantes B WHERE A.id = '{0}' AND A.id = B.n_mensagem_id AND A.b_deletado = false AND B.b_deletado = false AND B.b_ativo = true", id);
+
+            // Verifico se existe o registro com retorno da função ExecuteScalar
+            // Se não existir, retorno false
+            if (string.IsNullOrEmpty(objDB.ExecuteScalar(SQL))) {
+
+                return false;
+
+            }
+
+            // Se existir o registro não posso deixar deletar
+            // Então retorno true
+            return true;
+
+        }
+
         private void ExcluirMensagem() {
 
-            //TODO - Verificar se esta vinculada a algum usuário - se estiver não deixe deletar
-
             // Se não existir mensagem selecionado no grid
-            if (dgrigMensagem.SelectedItem == null)
-            {
+            if (dgrigMensagem.SelectedItem == null) {
 
                 // Apresenta mensagem informando que é necessário selecionar uma mensagem para excluí-la
                 MessageBox.Show("Você deve selecionar uma mensagem para excluir");
 
             }
 
-                // Se existir mensagem selecionada
+            // Se existir mensagem selecionada
             else {
 
                 // Defino novo objeto RowView com o registro selecionado
@@ -99,32 +118,47 @@ namespace Cliente {
                 // Pego valor do campo ID
                 var strId = rowview.Row["id"].ToString();
 
-                // Defino dicionario com chave e valor a ser alterado
-                Dictionary<string, string> campoValor = new Dictionary<string, string>();
+                // Verifica se a mensagem não tem vinculação com nenhum usuário ativo
+                // Se tiver, não posso deixar deletar a mensagem
+                if (Ligacao(strId)) {
 
-                // Adiciono o campo deletado no dicionario
-                campoValor.Add("b_deletado", "true");
-
-                // Crio novo objeto de database
-                var deletar = new DatabaseHelper();
-
-                // Se conseguir setar a mensagem como deletado
-                if (deletar.Update("dados.mensagem", campoValor, "id = " + strId)) {
-
-                    // Apresenta mensagem para o usuário
-                    MessageBox.Show("Mensagem deletadada");
-
-                    // Chama rotina que atualiza a lista de mensagens
-                    CarregaDados();
+                    // Apresento mensagem para o usuário
+                    MessageBox.Show("Não é possivel remover está mensagem pois a mesma está definida para um ou mais usuários");
 
                 }
 
-                    // Se não conseguir deletar
+                // Se não houver ligacao entre aniversariante e mensagem segue com a deleção
                 else {
 
-                    // Apresenta mensagem para o usuário
-                    MessageBox.Show("Ocorreu erro ao tentar deletar a mensagem");
+                    // Defino dicionario com chave e valor a ser alterado
+                    Dictionary<string, string> campoValor = new Dictionary<string, string>();
+
+                    // Adiciono o campo deletado no dicionario
+                    campoValor.Add("b_deletado", "true");
+
+                    // Crio novo objeto de database
+                    var deletar = new DatabaseHelper();
+
+                    // Se conseguir setar a mensagem como deletado
+                    if (deletar.Update("dados.mensagem", campoValor, "id = " + strId)) {
+
+                        // Apresenta mensagem para o usuário
+                        MessageBox.Show("Mensagem deletadada");
+
+                        // Chama rotina que atualiza a lista de mensagens
+                        CarregaDados();
+
+                    }
+
+                    // Se não conseguir deletar
+                    else {
+
+                        // Apresenta mensagem para o usuário
+                        MessageBox.Show("Ocorreu erro ao tentar deletar a mensagem");
+                    }
+
                 }
+
             }
         }
 
